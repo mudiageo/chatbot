@@ -47,7 +47,11 @@
         
 }
 </script>
+<svelte:head>
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <title> AI Chatbot</title>
 
+</svelte:head>
 <div class="max-w-2xl border rounded">
 <form on:submit|preventDefault={handleText}>
   <div class="w-full">
