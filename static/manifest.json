@@ -1,0 +1,23 @@
+{
+    "name": "Mudiaga Arharhire Blog and Portfolio",
+    "short_name": "Mudia Arha Blog",
+    "start_url": "/",
+    "background_color": "#1b4079",
+    "theme_color": "#d62828",
+    "display": "standalone",
+    "scope": "/",
+    "icons": 
+      [{
+        "src": "favicon.png",
+        "sizes": "128x128",
+        "type": "image/png",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "512x512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
+    ]
+}
