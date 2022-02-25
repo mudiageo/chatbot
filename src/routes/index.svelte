@@ -35,23 +35,18 @@
          top_p: 0.9,
          stop_sequence: 'Mudia: '
        }
-setTimeout(()=>{
-  messages = [...messages, {
-          sender:  'Bot',
-          class: 'start',
-          bg: '',
-          message: 'Message received'
-        }]
+// setTimeout(()=>{
+//   messages = [...messages, {
+//           sender:  'Bot',
+//           class: 'start',
+//           bg: '',
+//           message: 'Message received'
+//         }]
 
-}, 3000)
+// }, 3000)
 let params = new URLSearchParams(data.toSring())
         const response = await fetch(`http://api.vicgalle.net:5000/generate?${params}`, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-
-          body: data
         })
         const test = await response.json()
         console.log(test)
