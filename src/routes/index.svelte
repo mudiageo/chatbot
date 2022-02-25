@@ -51,7 +51,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
           method: 'POST',
           mode: 'no-cors',
         })
-        const test = await response.json()
+        const test = response.json()
         
         console.log(test)
 
