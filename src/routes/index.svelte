@@ -44,9 +44,8 @@
 //         }]
 
 // }, 3000)
-console.log(data.toString())
-let params = new URLSearchParams(data).toString()
-console.log(params)
+let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURIComponent(val)}`).join('&')
+
 
         const response = await fetch(`http://api.vicgalle.net:5000/generate?${params}`, {
           method: 'POST',
