@@ -2,13 +2,16 @@
 <script>
   import {onMount} from 'svelte'
   let messages = []
-  let prompt 
+  let prompt, newMessage = ''
+
   onMount(() => {
-    messages =  JSON.parse(localStorage.getItem('messages'))|| []  
-    prompt =  JSON.parse(localStorage.getItem('prompt')) || ''
+    messages =  JSON.parse(localStorage.getItem('messages')) || []  
+    newMessage =  localStorage.getItem('newMessage') || 'hey'
+    prompt =  localStorage.getItem('prompt') || ''
+    $:  localStorage.setItem('newMessage', newMessage)
+
  
 })
-    let newMessage
   const handleText = async (e) => {
 
       messages = [...messages, {
@@ -17,6 +20,7 @@
           bg: 'bg-gray-100',
           message: newMessage
         }]
+
         newMessage = ""
         localStorage.setItem('prompt', prompt)
         localStorage.setItem('messages', JSON.stringify(messages))
@@ -24,14 +28,24 @@
 
 
         let context = `${prompt} ${promptMessages}`
-       let data = JSON.stringify({
+       let data = {
          context: context,
          temperature: 1,
          token_max_length: 30,
          top_p: 0.9,
          stop_sequence: 'Mudia: '
-       })
-        const response = await fetch('http://api.vicgalle.net:5000/generate', {
+       }
+setTimeout(()=>{
+  messages = [...messages, {
+          sender:  'Bot',
+          class: 'start',
+          bg: '',
+          message: 'Message received'
+        }]
+
+}, 3000)
+let params = new URLSearchParams(data.toSring())
+        const response = await fetch(`http://api.vicgalle.net:5000/generate?${params}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -39,8 +53,6 @@
 
           body: data
         })
-        console.log('test1')
-
         const test = await response.json()
         console.log(test)
 
@@ -78,7 +90,7 @@
     </div>
   </div>
   <div class="bottom-0 flex items-center justify-between w-full p-3 border-t border-gray-300">
-  <input class="block w-full py-2 pl-4 mx-3 bg-gray-100 rounded-full outline-none focus:text-gray-700" placeholder="Message" name="message" bind:value={newMessage} required type="text">
+  <input class="block w-full py-2 pl-4 mx-3 bg-gray-100 rounded-full outline-none focus:text-gray-700" placeholder="Message" name="message" on:keydown={localStorage.setItem('newMessage', newMessage)} bind:value={newMessage} required type="text">
   <button class="btn btn-outline" type="submit">Submit</button>
 </div>
 </form>
