@@ -58,7 +58,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
 }
 </script>
 <svelte:head>
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
   <title> AI Chatbot</title>
 
 </svelte:head>
