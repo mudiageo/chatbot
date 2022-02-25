@@ -49,6 +49,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
 
         const response = await fetch(`http://api.vicgalle.net:5000/generate?${params}`, {
           method: 'POST',
+          mode: 'no-cors',
         })
         const test = await response.json()
         
