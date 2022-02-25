@@ -45,6 +45,8 @@
 
 // }, 3000)
 let params = new URLSearchParams(data.toString())
+console.log(params)
+
         const response = await fetch(`http://api.vicgalle.net:5000/generate?${params}`, {
           method: 'POST',
         })
