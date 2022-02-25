@@ -31,14 +31,15 @@
          top_p: 0.9,
          stop_sequence: 'Mudia: '
        })
-        const response = await fetch('http://api.vicgalle.net:5000/generate', {
+        const response = await fetch(`http://api.vicgalle.net:5000/generate?context=${context}&token_max_length=30&top_p=0.8&temperature=1&stop_sequence=Mudia: `, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
+            'Accept': 'application/json',
           },
 
-          body: data
+       
         })
+
         console.log('test1')
 
         const test = await response.json()
