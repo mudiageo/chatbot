@@ -44,6 +44,7 @@
 //         }]
 
 // }, 3000)
+console.log(data.toString())
 let params = new URLSearchParams(data.toString())
 console.log(params)
 
