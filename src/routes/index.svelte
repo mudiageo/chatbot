@@ -47,12 +47,10 @@
 let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURIComponent(val)}`).join('&')
 
 
-        const response = await fetch(`http://api.vicgalle.net:5000/generate?${params}`, {
-          method: 'POST',
-          mode: 'no-cors',
-        })
+        const response = await fetch(`http://api.vicgalle.net:5000/generate?${params}`)
        
-        
+        let text = await.response.json()
+
         console.log(response)
 
         
@@ -89,7 +87,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
     </div>
   </div>
   <div class="bottom-0 flex items-center justify-between w-full p-3 border-t border-gray-300">
-  <input class="block w-full py-2 pl-4 mx-3 bg-gray-100 rounded-full outline-none focus:text-gray-700" placeholder="Message" name="message" on:keydown={localStorage.setItem('newMessage', newMessage)} bind:value={newMessage} required type="text">
+  <input class="block w-full py-2 pl-4 mx-3 bg-gray-100 rounded-full outline-none focus:text-gray-700" placeholder="Message" name="message" on:keyup={localStorage.setItem('newMessage', newMessage)} bind:value={newMessage} required type="text">
   <button class="btn btn-outline" type="submit">Submit</button>
 </div>
 </form>
