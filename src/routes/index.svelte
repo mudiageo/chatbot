@@ -66,7 +66,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
         class="fixed w-full bg-sky-500 h-16 pt-2 text-white flex justify-between shadow-md"
         style="top:0px; overscroll-behavior: none;"
       >
-        <!-- back button -->
+        <!-- back button -
         <a href="#">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +78,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
               d="M9.41 11H17a1 1 0 0 1 0 2H9.41l2.3 2.3a1 1 0 1 1-1.42 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 0 1 1.42 1.4L9.4 11z"
             />
           </svg>
-        </a>
+        </a>-->
         <div class="my-3 text-black-800 font-bold text-lg tracking-wide">Prompt: <textarea class="text-black-800" bind:value={prompt}></textarea></div>
         <!-- 3 dots -->
         <svg
