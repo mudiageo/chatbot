@@ -49,16 +49,18 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
 
         const response = await fetch(`https://express-hello-world-hh2h.onrender.com/${params}`)
        
-        let text = await response.text()
+        let stuv = await response.text()
 
-        $: document.getElementById('console').innerHTML = text
-        let botMessage = text.slice(0, -data.stop_sequence.length)
-        messages = [...messages, {
+     //   $: document.getElementById('console').innerHTML = text
+        let botMessage = stuv.slice(0, -data.stop_sequence.length)
+       alert (botMessage)
+ messages = [...messages, {
           sender:  'Bot',
           class: 'start',
           bg: '',
           message: botMessage
         }]
+alert(messages.toString())
 }
 </script>
 <svelte:head>
