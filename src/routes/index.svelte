@@ -46,7 +46,7 @@
 // }, 3000)
 let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURIComponent(val)}`).join('&')
 
-
+alert(params)
         const response = await fetch(`https://express-hello-world-hh2h.onrender.com/${params}`)
        
         let stuv = await response.text()
