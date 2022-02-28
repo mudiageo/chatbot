@@ -63,7 +63,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
 <form on:submit|preventDefault={handleText} style="overscroll-behavior: none;">
   <!-- HEADING -->
       <div
-        class="fixed w-full bg-sky-500 h-16 pt-2 text-white flex justify-between shadow-md"
+        class="fixed w-full bg-sky-500 h-16 pt-2 text-black flex justify-between shadow-md"
         style="top:0px; overscroll-behavior: none;"
       >
         <!-- back button -
