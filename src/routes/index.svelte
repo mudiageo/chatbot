@@ -79,7 +79,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
             />
           </svg>
         </a>
-        <div class="my-3 text-sky-100 font-bold text-lg tracking-wide">Prompt: <textarea bind:value={prompt}></textarea></div>
+        <div class="my-3 text-sky-100 font-bold text-lg tracking-wide">Prompt: <textarea class="text-black-200" bind:value={prompt}></textarea></div>
         <!-- 3 dots -->
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +109,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
     <!-- MESSAGE INPUT AREA -->
     <div class="fixed w-full flex justify-between bg-green-100" style="bottom: 0px;">
       <textarea
-        class="flex-grow m-2 py-2 px-4 mr-1 rounded-full border border-gray-300 bg-gray-200 resize-none"
+        class="flex-grow m-2 py-2 px-4 mr-1 rounded-full border border-gray-300 text-black-200 bg-gray-200 resize-none"
         rows="1"
 on:keyup={localStorage.setItem('newMessage', newMessage)}
 bind:value={newMessage}
@@ -118,7 +118,7 @@ bind:value={newMessage}
       ></textarea>
       <button class="m-2" style="outline: none;">
         <svg
-          class="svg-inline--fa text-green-400 fa-paper-plane fa-w-16 w-12 h-12 py-2 mr-2"
+          class="svg-inline--fa text-sky-400 fa-paper-plane fa-w-16 w-12 h-12 py-2 mr-2"
           aria-hidden="true"
           focusable="false"
           data-prefix="fas"
