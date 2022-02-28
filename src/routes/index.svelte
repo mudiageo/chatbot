@@ -79,7 +79,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
             />
           </svg>
         </a>-->
-        <div class="my-3 text-black-800 font-bold text-lg tracking-wide">Prompt: <textarea class="text-black-800" bind:value={prompt}></textarea></div>
+        <div class="my-3 text-black-800 font-bold text-lg tracking-wide">Prompt: <textarea class="bg-black-800" bind:value={prompt}></textarea></div>
         <!-- 3 dots -->
         <svg
           xmlns="http://www.w3.org/2000/svg"
