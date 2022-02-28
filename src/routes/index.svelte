@@ -59,8 +59,8 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
   <title> AI Chatbot</title>
 
 </svelte:head>
-<div class="max-w-2xl border rounded">
-<form on:submit|preventDefault={handleText}>
+
+<form on:submit|preventDefault={handleText} style="overscroll-behavior: none;">
   <!-- HEADING -->
       <div
         class="fixed w-full bg-sky-500 h-16 pt-2 text-white flex justify-between shadow-md"
@@ -135,6 +135,6 @@ bind:value={newMessage}
       </button>
     </div>
    
-</div>
+
 </form>
-</div>
+
