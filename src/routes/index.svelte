@@ -50,7 +50,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
         const response = await fetch(`https://express-hello-world-hh2h.onrender.com/${params}`)
        
         let stuv = await response.text()
-
+alert(stuv)
      //   $: document.getElementById('console').innerHTML = text
         let botMessage = stuv.slice(0, -data.stop_sequence.length)
        alert (botMessage)
