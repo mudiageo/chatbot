@@ -16,7 +16,7 @@
 
       messages = [...messages, {
           sender:  'Mudia',
-          class: 'end',
+          class: 'clearfix',
           bg: 'bg-gray-100',
           message: newMessage
         }]
@@ -47,7 +47,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
        
  messages = [...messages, {
           sender:  'Bot',
-          class: 'start',
+          class: '',
           bg: '',
           message: botMessage
         }]
@@ -61,29 +61,50 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
 </svelte:head>
 <div class="max-w-2xl border rounded">
 <form on:submit|preventDefault={handleText}>
-  <div class="w-full">
-    <div class="relative flex items-center b-3 border-b border-gray-300">
-     <span class="block ml-2 font-bold text-gray-600"> About Personality:  </span>
-     <textarea class="bg-gray-300" bind:value={prompt}></textarea>
+  <!-- HEADING -->
+      <div
+        class="fixed w-full bg-sky-500 h-16 pt-2 text-white flex justify-between shadow-md"
+        style="top:0px; overscroll-behavior: none;"
+      >
+        <!-- back button -->
+        <a href="#">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            class="w-12 h-12 my-1 text-sky-100 ml-2"
+          >
+            <path
+              class="text-sky-100 fill-current"
+              d="M9.41 11H17a1 1 0 0 1 0 2H9.41l2.3 2.3a1 1 0 1 1-1.42 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 0 1 1.42 1.4L9.4 11z"
+            />
+          </svg>
+        </a>
+        <div class="my-3 text-sky-100 font-bold text-lg tracking-wide">Prompt: <textarea bind:value={prompt}></textarea></div>
+        <!-- 3 dots -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          class="icon-dots-vertical w-8 h-8 mt-2 mr-2"
+        >
+          <path
+            class="text-sky-100 fill-current"
+            fill-rule="evenodd"
+            d="M12 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
+          />
+        </svg>
+      </div>
 
-    </div>
-    <div class="relative w-full p-6 overflow-y-auto h-[100%]">
-      <ul class="space-y-2">
-        <li class="flex justify-start">
-          <div class="relative max-w-xl px-4 py-2 text-white-700 rounded shadow"> 
-            <span id="console" class="block"> Hey </span>
-          </div>
-          </li>
-        {#each messages as item}
-          <li class="flex justify-{item.class}">
-          <div class="relative max-w-xl px-4 py-2 text-gray-700 {item.bg} rounded shadow"> 
-            <span class="block"> {item.message} </span>
-          </div>
-          </li>
-        {/each}
-      </ul>
-    </div>
-  </div>
+      <!-- MESSAGES -->
+      <div class="mt-20 mb-16">
+
+       {#each messages as item}
+        <div class="clearfix">
+          <div
+            class="{item.bg}  w-3/4 mx-4 my-2 p-2 rounded-lg  {item.class}"
+          >{item.message}</div>
+        </div>
+{/each}
+</div>
 
     <!-- MESSAGE INPUT AREA -->
     <div class="fixed w-full flex justify-between bg-green-100" style="bottom: 0px;">
