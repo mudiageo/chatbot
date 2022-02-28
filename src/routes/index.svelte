@@ -107,7 +107,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
 </div>
 
     <!-- MESSAGE INPUT AREA -->
-    <div class="fixed w-full flex justify-between bg-green-100" style="bottom: 0px;">
+    <div class="fixed w-full flex justify-between bg-sky-200" style="bottom: 0px;">
       <textarea
         class="flex-grow m-2 py-2 px-4 mr-1 rounded-full border border-gray-300 text-black-200 bg-gray-200 resize-none"
         rows="1"
