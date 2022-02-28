@@ -35,32 +35,23 @@
          top_p: 0.9,
          stop_sequence: 'Mudia: '
        }
-// setTimeout(()=>{
-//   messages = [...messages, {
-//           sender:  'Bot',
-//           class: 'start',
-//           bg: '',
-//           message: 'Message received'
-//         }]
 
-// }, 3000)
 let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURIComponent(val)}`).join('&')
 
-alert(params)
+
         const response = await fetch(`https://express-hello-world-hh2h.onrender.com/?${params}`)
        
         let stuv = await response.text()
-alert(stuv)
      //   $: document.getElementById('console').innerHTML = text
         let botMessage = stuv.slice(0, -data.stop_sequence.length)
-       alert (botMessage)
+       
  messages = [...messages, {
           sender:  'Bot',
           class: 'start',
           bg: '',
           message: botMessage
         }]
-alert(messages.toString())
+
 }
 </script>
 <svelte:head>
