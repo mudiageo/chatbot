@@ -47,11 +47,11 @@
 let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURIComponent(val)}`).join('&')
 
 
-        const response = await fetch(`http://api.vicgalle.net:5000/generate?${params}`)
+        const response = await fetch(`https://express-hello-world-hh2h.onrender.com/${params}`)
        
         let text = await response.json()
 
-        console.log(response)
+        $: document.getElementById('console').innerHTML = text
 
         messages = [...messages, {
           sender:  'Bot',
@@ -77,8 +77,8 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
     <div class="relative w-full p-6 overflow-y-auto h-[100%]">
       <ul class="space-y-2">
         <li class="flex justify-start">
-          <div class="relative max-w-xl px-4 py-2 text-gray-700 rounded shadow"> 
-            <span class="block"> Hey </span>
+          <div class="relative max-w-xl px-4 py-2 text-white-700 rounded shadow"> 
+            <span id="console" class="block"> Hey </span>
           </div>
           </li>
         {#each messages as item}
