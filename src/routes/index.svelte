@@ -49,11 +49,16 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
 
         const response = await fetch(`http://api.vicgalle.net:5000/generate?${params}`)
        
-        let text = await.response.json()
+        let text = await response.json()
 
         console.log(response)
 
-        
+        messages = [...messages, {
+          sender:  'Bot',
+          class: 'start',
+          bg: '',
+          message: text
+        }]
 }
 </script>
 <svelte:head>
