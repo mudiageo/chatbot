@@ -21,7 +21,8 @@ bind:value={bot}
 bind:value={you}
         placeholder="Your Name...">
       <br>
-<div class="my-3 text-black-800 font-bold text-lg tracking-wide">Prompt: <textarea class="bg-black-800" bind:value={prompt}></textarea></div>
+<div class="my-3 text-black-800 font-bold text-lg tracking-wide">
+Prompt: <textarea on:input={this.parentNode.dataset.value = this.value} rows="1" placeholder="Prompt" class="bg-black-800" bind:value={prompt}></textarea></div>
         
 <br>
       <a href="/{bot}-{you}" on:click={localStorage.setItem('prompt', prompt)} class="btn btn-primary">Get Started</a>
