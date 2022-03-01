@@ -30,7 +30,7 @@
         newMessage = ""
         localStorage.setItem('prompt', prompt)
         localStorage.setItem('messages', JSON.stringify(messages))
-        let promptMessages = messages.map((item) => `${item.sender}: ${item.message} ${botName}: `).toString().replaceAll(`${botName}`, '')
+        let promptMessages = messages.map((item) => `\n${item.sender}: ${item.message} \n${botName}: `).toString().replaceAll(`\n${botName}`, '')
 
 
         let context = `${prompt} ${promptMessages}`
@@ -39,7 +39,7 @@
          temperature: 1,
          token_max_length: 30,
          top_p: 0.9,
-         stop_sequence: `${yourName}: `
+         stop_sequence: `\n${yourName}: `
        }
 
 let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURIComponent(val)}`).join('&')
