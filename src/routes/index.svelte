@@ -24,7 +24,7 @@ bind:value={you}
 <div class="my-3 text-black-800 font-bold text-lg tracking-wide">Prompt: <textarea class="bg-black-800" bind:value={prompt}></textarea></div>
         
 <br>
-      <a href="/{bot}-{you}" class="btn btn-primary">Get Started</a>
+      <a href="/{bot}-{you}" on:click={localStorage.setItem('prompt', prompt)} class="btn btn-primary">Get Started</a>
     </div>
   </div>
 </div>
