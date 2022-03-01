@@ -6,7 +6,7 @@ let you = ''
 let prompt
 onMount(() => {
  prompt =  localStorage.getItem('prompt') || 'You are talking to Mudiaga a web developer with over 8 years of experience in web technologies. He studied at MIT. He is a JavaScript Developer and he works with Sveltekit and Svelte alot.  You: Hello. /n Mudiaga: Hi. /n You: How are you doing today? /n Mudiaga: I am doing alright. /n You: How is MIT like? /n Mudiaga: '
-}
+})
 </script>
 <div class="hero min-h-screen bg-base-200">
   <div class="text-center hero-content">
