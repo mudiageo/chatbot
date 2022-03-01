@@ -17,6 +17,7 @@ onMount(() => {
 bind:value={bot}
         placeholder="Bot Name...">
       <br>
+<br>
        <input class="input"
 bind:value={you}
         placeholder="Your Name...">
