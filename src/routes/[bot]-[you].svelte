@@ -23,7 +23,7 @@
       messages = [...messages, {
           sender:  yourName,
           class: 'clearfix',
-          bg: 'bg-gray-800',
+          bg: 'bg-gray-200',
           message: newMessage
         }]
 
