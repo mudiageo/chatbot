@@ -59,6 +59,11 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
         }]
 
 }
+
+const deleteAllMessages = () => {
+confirm("Are you sure you want to delete previous all messages?") ? localStorage.removeItem("messages")
+}
+
 </script>
 <svelte:head>
   <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
@@ -87,7 +92,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
         </a>-->
         <div class="my-3 text-black-800 font-bold text-lg tracking-wide">Prompt: <textarea class="bg-black-800" bind:value={prompt}></textarea></div>
         <!-- 3 dots -->
-        <div on:click={() => confirm("Are you sure you want to delete previous all messages?") ? localStorage.removeItem("messages")}> Clear
+        <div on:click={deleteAllMessages}> Clear
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
