@@ -30,7 +30,7 @@
         newMessage = ""
         localStorage.setItem('prompt', prompt)
         localStorage.setItem('messages', JSON.stringify(messages))
-        let promptMessages = messages.map((item) => `${item.sender}: ${item.message} ${botName}: `).toString().replaceAll(`${botName}: `, ' ')
+        let promptMessages = messages.map((item) => `${item.sender}: ${item.message} ${botName}: `).toString().replaceAll(`${botName}: ,`, ' ')
 
 
         let context = `${prompt} ${promptMessages}`
