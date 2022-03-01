@@ -21,7 +21,7 @@
   const handleText = async (e) => {
 
       messages = [...messages, {
-          sender:  yourName
+          sender:  yourName,
           class: 'clearfix',
           bg: 'bg-gray-800',
           message: newMessage
