@@ -34,7 +34,7 @@
 
 
         let context = `${prompt} ${promptMessages}`
-alert(context)
+alert(messages.map((item) => `\n${item.sender}: ${item.message} \n${botName}: `))
        let data = {
 
          context: context,
