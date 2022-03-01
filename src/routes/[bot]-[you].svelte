@@ -1,9 +1,15 @@
 
 <script>
   import {onMount} from 'svelte'
+  
+ import { page } from '$app/stores' 
   let messages = []
   let prompt, newMessage = ''
-
+  let botName = $page.params.bot || 'Mudiaga' 
+  let yourName  = $page.params.you || 'You'
+  
+  
+  
   onMount(() => {
     messages =  JSON.parse(localStorage.getItem('messages')) || []  
     newMessage =  localStorage.getItem('newMessage') || 'hey'
@@ -15,16 +21,16 @@
   const handleText = async (e) => {
 
       messages = [...messages, {
-          sender:  'Mudia',
+          sender:  yourName
           class: 'clearfix',
-          bg: 'bg-gray-100',
+          bg: 'bg-gray-800',
           message: newMessage
         }]
 
         newMessage = ""
         localStorage.setItem('prompt', prompt)
         localStorage.setItem('messages', JSON.stringify(messages))
-        let promptMessages = messages.map((item) => `${item.sender}: ${item.message} Bot: `).toString().replaceAll('Bot: ,', ' ')
+        let promptMessages = messages.map((item) => `${item.sender}: ${item.message} ${botName}: `).toString().replaceAll(`${botName}`, '')
 
 
         let context = `${prompt} ${promptMessages}`
@@ -33,7 +39,7 @@
          temperature: 1,
          token_max_length: 30,
          top_p: 0.9,
-         stop_sequence: 'Mudia: '
+         stop_sequence: `${yourName}: `
        }
 
 let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURIComponent(val)}`).join('&')
@@ -46,7 +52,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
         let botMessage = stuv.slice(0, -data.stop_sequence.length)
        
  messages = [...messages, {
-          sender:  'Bot',
+          sender:  botName,
           class: '',
           bg: '',
           message: botMessage
@@ -67,7 +73,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
         style="top:0px; overscroll-behavior: none;"
       >
         <!-- back button -
-        <a href="#">
+        <a href="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -81,17 +87,22 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
         </a>-->
         <div class="my-3 text-black-800 font-bold text-lg tracking-wide">Prompt: <textarea class="bg-black-800" bind:value={prompt}></textarea></div>
         <!-- 3 dots -->
+        <div on:click={() => confirm("Are you sure you want to delete previous all messages?") ? localStorage.removeItem("messages")}> Clear
+>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           class="icon-dots-vertical w-8 h-8 mt-2 mr-2"
-        >
+             >
           <path
             class="text-sky-100 fill-current"
             fill-rule="evenodd"
             d="M12 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
           />
         </svg>
+          </div>
+
+        
       </div>
 
       <!-- MESSAGES -->
