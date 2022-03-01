@@ -62,7 +62,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
 
 const deleteAllMessages = () => {
 if(confirm("Are you sure you want to delete previous all messages?")) {
-
+messages=[]
  localStorage.removeItem("messages")
 }
 }
