@@ -88,7 +88,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
         <div class="my-3 text-black-800 font-bold text-lg tracking-wide">Prompt: <textarea class="bg-black-800" bind:value={prompt}></textarea></div>
         <!-- 3 dots -->
         <div on:click={() => confirm("Are you sure you want to delete previous all messages?") ? localStorage.removeItem("messages")}> Clear
->
+
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
