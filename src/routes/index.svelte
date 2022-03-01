@@ -4,8 +4,8 @@ let bot =''
 let you = ''
 
 let prompt
-onMount(() => {
- prompt = localStorage.getItem('prompt') || 'You are talking to Mudiaga a web developer with over 8 years of experience in web technologies. He studied at MIT. He is a JavaScript Developer and he works with Sveltekit and Svelte alot.  You: Hello. \nMudiaga: Hi. \nYou: How are you doing today? \nMudiaga: I am doing alright. \nYou: How is MIT like? \nMudiaga: '
+onMount(() =
+ prompt = localStorage.getItem('prompt') || 'You are talking to Mudiaga a web developer with over 8 years of experience in web technologies. He studied at MIT. He is a JavaScript Developer and he works with Sveltekit and Svelte alot.  You: Hello. Mudiaga: Hi. You: How are you doing today? Mudiaga: I am doing alright. You: How is MIT like? Mudiaga: '
 })
 </script>
 <div class="hero min-h-screen bg-base-200">
