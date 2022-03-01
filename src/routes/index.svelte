@@ -5,7 +5,7 @@ let you = ''
 
 let prompt
 onMount(() => {
- prompt = 'You are talking to Mudiaga a web developer with over 8 years of experience in web technologies. He studied at MIT. He is a JavaScript Developer and he works with Sveltekit and Svelte alot.  You: Hello. /n Mudiaga: Hi. /n You: How are you doing today? /n Mudiaga: I am doing alright. /n You: How is MIT like? /n Mudiaga: ' || localStorage.getItem('prompt')
+ prompt = 'You are talking to Mudiaga a web developer with over 8 years of experience in web technologies. He studied at MIT. He is a JavaScript Developer and he works with Sveltekit and Svelte alot.  You: Hello. \nMudiaga: Hi. \nYou: How are you doing today? \nMudiaga: I am doing alright. \nYou: How is MIT like? \nMudiaga: ' || localStorage.getItem('prompt')
 })
 </script>
 <div class="hero min-h-screen bg-base-200">
