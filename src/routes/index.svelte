@@ -8,6 +8,14 @@ let you = ''
     <div class="max-w-md">
       <h1 class="text-5xl font-bold">Hello there</h1>
       <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+     <input
+bind:value={bot}
+        placeholder="Bot Name...">
+      
+       <input
+bind:value={you}
+        placeholder="Your Name...">
+      
       <a href="/{bot}-{you}"class="btn btn-primary">Get Started</a>
     </div>
   </div>
