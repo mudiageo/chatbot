@@ -95,7 +95,7 @@ const openChat = () => {
             </div>
           </div>
 
-          <ul class="overflow-auto h-[32rem]">
+          <ul class="overflow-auto">
             <h2 class="my-2 mb-2 ml-2 text-lg text-gray-600">Chats</h2>
             <li>
              
@@ -135,7 +135,7 @@ const openChat = () => {
               <span class="absolute w-3 h-3 bg-green-600 rounded-full left-300 top-3">
               </span>
             </div>
-            <div class="relative w-full p-6 overflow-y-auto h-[40rem]">
+            <div class="relative w-full p-6 overflow-y-auto">
               <ul class="space-y-2">
                       {#each messages as item}
 
