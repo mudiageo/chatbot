@@ -116,7 +116,7 @@ const toggleChat = () => {
         </div>
         <div id="messages-section" class="hidden flex flex-col h-screen lg:col-span-2 lg:block">
           <div class="w-full">
-            <div class="relative flex items-center p-3 border-b border-gray-300 fixed sticky top-0">
+            <div class="relative flex items-center p-3 border-b border-gray-300">
               <a on:click={toggleChat}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +150,7 @@ const toggleChat = () => {
               </ul>
             </div>
 <!--Message Input Section-->
-            <div class="flex items-center justify-between bg-white w-full p-3 border-t border-gray-300 sticky bottom-0 left-0">
+            <div class="flex items-center justify-between bg-white w-full p-3 border-t border-gray-300">
               <button>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
