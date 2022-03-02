@@ -9,7 +9,7 @@
 	});
 </script>
 
-	<main class="container mx-auto">
+	<main class="container mx-auto grid gap-1 sm:grid-cols-1 lg:grid-cols-2 justify-evenly">
 		<slot />
 	</main>
 
