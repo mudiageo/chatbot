@@ -34,7 +34,7 @@
 
 
         let context = `${prompt} ${promptMessages}`
-alert(messages.map((item) => `${item.sender}: ${item.message} ${botName}: `))
+alert(context)
        let data = {
 
          context: context,
@@ -114,7 +114,7 @@ const openChat = () => {
             </li>
           </ul>
         </div>
-        <div id="messages-section" class="hidden lg:col-span-2 lg:block">
+        <div id="messages-section" class="hidden h-full lg:col-span-2 lg:block">
           <div class="w-full">
             <div class="relative flex items-center p-3 border-b border-gray-300">
               <a href="/">
