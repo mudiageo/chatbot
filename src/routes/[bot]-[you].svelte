@@ -69,7 +69,8 @@ messages=[]
 }
 }
 const openChat = () => {
- document.getElementById("chat-section")
+ document.getElementById("messages-section").toggleClass("hidden")
+ document.getElementById("chat-section").toggleClass("hidden")
 }
 
 </script>
@@ -80,7 +81,7 @@ const openChat = () => {
 </svelte:head>
 <form on:submit|preventDefault={handleText} class="" style="overscroll-behavior: none;">
 <div class="min-w-full border rounded lg:grid lg:grid-cols-3">
-        <div class="border-r border-gray-300 lg:col-span-1">
+        <div id="chat-section" class="border-r border-gray-300 lg:col-span-1">
           <div class="mx-3 my-3">
             <div class="relative text-gray-600">
               <span class="absolute inset-y-0 left-0 flex items-center pl-2">
