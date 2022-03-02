@@ -116,7 +116,7 @@ const toggleChat = () => {
         </div>
         <div id="messages-section" class="hidden h-full lg:col-span-2 lg:block">
           <div class="w-full">
-            <div class="relative flex items-center p-3 border-b border-gray-300">
+            <div class="relative flex items-center p-3 border-b border-gray-300 sticky top-0">
               <a on:click={toggleChat}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +134,7 @@ const toggleChat = () => {
               <span class="block ml-2 font-bold text-gray-600">{$page.params.bot}</span>
               <span class="absolute w-3 h-3 bg-green-600 rounded-full left-1 top-3">
               </span>
-<span on:click={deleteAllMessages} class="justify-end">Clear</span>
+<span on:click={deleteAllMessages} class="right-0 absolute justify-end">Clear</span>
 
             </div>
             <div class="relative w-full p-6 overflow-y-auto h-full">
@@ -150,7 +150,7 @@ const toggleChat = () => {
               </ul>
             </div>
 <!--Message Input Section-->
-            <div class="flex items-center justify-between bg-white w-full p-3 border-t border-gray-300 sticky bottom-0">
+            <div class="flex items-center justify-between bg-white w-full p-3 border-t border-gray-300 fixed sticky bottom-0">
               <button>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
