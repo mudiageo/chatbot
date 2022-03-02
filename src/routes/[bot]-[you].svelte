@@ -132,8 +132,10 @@ const toggleChat = () => {
               <img class="object-cover w-10 h-10 rounded-full"
                 src="https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg" alt="username" />
               <span class="block ml-2 font-bold text-gray-600">{$page.params.bot}</span>
-              <span class="absolute w-3 h-3 bg-green-600 rounded-full left-300 top-3">
+              <span class="absolute w-3 h-3 bg-green-600 rounded-full left-1 top-3">
               </span>
+<span on:click={deleteAllMessages} class="justify-end">Clear</span>
+
             </div>
             <div class="relative w-full p-6 overflow-y-auto h-full">
               <ul class="space-y-2">
@@ -148,7 +150,7 @@ const toggleChat = () => {
               </ul>
             </div>
 <!--Message Input Section-->
-            <div class="flex items-center justify-between w-full p-3 border-t border-gray-300 sticky bottom-0">
+            <div class="flex items-center justify-between bg-white w-full p-3 border-t border-gray-300 sticky bottom-0">
               <button>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
