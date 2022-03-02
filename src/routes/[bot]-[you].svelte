@@ -68,7 +68,7 @@ messages=[]
  localStorage.removeItem("messages")
 }
 }
-const openChat = () => {
+const toggleChat = () => {
  $: document.getElementById("messages-section").classList.toggle("hidden")
  $: document.getElementById("chat-section").classList.toggle("hidden")
 }
@@ -99,7 +99,7 @@ const openChat = () => {
             <h2 class="my-2 mb-2 ml-2 text-lg text-gray-600">Chats</h2>
             <li>
              
-              <a on:click={openChat}
+              <a on:click={toggleChat}
                 class="flex items-center px-3 py-2 text-sm transition duration-150 ease-in-out border-b border-gray-300 cursor-pointer hover:bg-gray-100 focus:outline-none">
                 <img class="object-cover w-10 h-10 rounded-full"
                   src="https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg" alt="username" />
@@ -117,7 +117,7 @@ const openChat = () => {
         <div id="messages-section" class="hidden h-full lg:col-span-2 lg:block">
           <div class="w-full">
             <div class="relative flex items-center p-3 border-b border-gray-300">
-              <a href="/">
+              <a on:click={toggleChat}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -135,7 +135,7 @@ const openChat = () => {
               <span class="absolute w-3 h-3 bg-green-600 rounded-full left-300 top-3">
               </span>
             </div>
-            <div class="relative w-full p-6 overflow-y-auto">
+            <div class="relative w-full p-6 overflow-y-auto h-full">
               <ul class="space-y-2">
                       {#each messages as item}
 
