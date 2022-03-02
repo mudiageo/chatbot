@@ -105,7 +105,7 @@ const toggleChat = () => {
                   src="https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg" alt="username" />
                 <div class="w-full pb-2">
                   <div class="flex justify-between">
-                    <span class="block ml-2 font-semibold text-gray-600">Emma</span>
+                    <span class="block ml-2 font-semibold text-gray-600">{$page.params.bot}</span>
                     <span class="block ml-2 text-sm text-gray-600">6 hour</span>
                   </div>
                   <span class="block ml-2 text-sm text-gray-600">Bot</span>
@@ -132,13 +132,13 @@ const toggleChat = () => {
               <img class="object-cover w-10 h-10 rounded-full"
                 src="https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg" alt="username" />
               <span class="block ml-2 font-bold text-gray-600">{$page.params.bot}</span>
-              <span class="absolute w-3 h-3 bg-green-600 rounded-full left-1 top-3">
+              <span class="absolute w-3 h-3 bg-green-600 rounded-full left-0 top-3">
               </span>
 <span on:click={deleteAllMessages} class="right-0 absolute justify-end">Clear</span>
 
             </div>
 
-            <div class="relative w-full p-6 overflow-y-auto h-screen">
+            <div class="relative w-full p-6 overflow-y-auto h-full">
               <ul class="space-y-2">
                       {#each messages as item}
 
