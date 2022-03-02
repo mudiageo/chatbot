@@ -69,8 +69,8 @@ messages=[]
 }
 }
 const openChat = () => {
- document.getElementById("messages-section").toggleClass("hidden")
- document.getElementById("chat-section").toggleClass("hidden")
+ $: document.getElementById("messages-section").classList.toggle("hidden")
+ $: document.getElementById("chat-section").classList.toggle("hidden")
 }
 
 </script>
@@ -99,7 +99,7 @@ const openChat = () => {
             <h2 class="my-2 mb-2 ml-2 text-lg text-gray-600">Chats</h2>
             <li>
              
-              <a
+              <a on:click={openChat}
                 class="flex items-center px-3 py-2 text-sm transition duration-150 ease-in-out border-b border-gray-300 cursor-pointer hover:bg-gray-100 focus:outline-none">
                 <img class="object-cover w-10 h-10 rounded-full"
                   src="https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg" alt="username" />
@@ -108,7 +108,7 @@ const openChat = () => {
                     <span class="block ml-2 font-semibold text-gray-600">Emma</span>
                     <span class="block ml-2 text-sm text-gray-600">6 hour</span>
                   </div>
-                  <span on:click={openChat} class="block ml-2 text-sm text-gray-600">Bot</span>
+                  <span class="block ml-2 text-sm text-gray-600">Bot</span>
                 </div>
               </a>
             </li>
