@@ -22,7 +22,7 @@
 
       messages = [...messages, {
           sender:  yourName,
-          class: 'clearfix',
+          class: 'end',
           bg: 'bg-gray-200',
           message: newMessage
         }]
@@ -55,7 +55,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
        
  messages = [...messages, {
           sender:  botName,
-          class: '',
+          class: 'start',
           bg: '',
           message: botMessage
         }]
@@ -144,13 +144,14 @@ messages=[]
             </div>
             <div class="relative w-full p-6 overflow-y-auto h-[40rem]">
               <ul class="space-y-2">
-               
-                <li class="flex justify-start">
-                  <div class="relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
-                    <span class="block">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    </span>
+                      {#each messages as item}
+
+                <li class="flex justify-{item.class}">
+                  <div class="{item.bg} relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
+                    <span class="block">{item.message}</span>
                   </div>
                 </li>
+                {/each}
               </ul>
             </div>
 <!--Message Input Section-->
@@ -212,13 +213,7 @@ messages=[]
       <!-- MESSAGES -->
    
 
-       {#each messages as item}
-        <div class="clearfix">
-          <div
-            class="{item.bg}  w-3/4 mx-4 my-2 p-2 rounded-lg  {item.class}"
-          >{item.message}</div>
-        </div>
-{/each}
+       
 
 
 
