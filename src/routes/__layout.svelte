@@ -1,11 +1,11 @@
 <script>
 	import { onMount } from 'svelte';
-	import { themeChange } from 'theme-change';
+	//import { themeChange } from 'theme-change';
 	import '../app.css';
 
 	onMount(async () => {
 	
-		themeChange(false);
+		//themeChange(false);
 	});
 </script>
 
