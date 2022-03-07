@@ -3,7 +3,7 @@
   import {onMount} from 'svelte'
   import Icon from 'svelte-awesome';
   import { beer, trash, comment, codeFork, camera, ban } from 'svelte-awesome/icons';
-  import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';  
+  //import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';  
   import { page } from '$app/stores' 
 
   let messages = []
