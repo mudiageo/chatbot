@@ -31,6 +31,7 @@
         }]
 
         newMessage = ""
+localStorage.setItem('newMessage', '')
         localStorage.setItem('prompt', prompt)
         localStorage.setItem('messages', JSON.stringify(messages))
         let promptMessages = messages.map((item) => `${item.sender}: ${item.message} ${botName}: `).toString().replaceAll(`${botName}: ,`, ' ')
@@ -119,7 +120,7 @@ const toggleChat = () => {
         </div>
         <div id="messages-section" class="hidden flex flex-col h-screen lg:col-span-2 lg:block">
           <div class="w-full h-full">
-            <div class="relative flex items-center p-3 border-b border-gray-300 sticky top-0">
+            <div class="relative flex items-center p-1 border-b border-gray-300 sticky top-0">
               <a on:click={toggleChat}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +138,7 @@ const toggleChat = () => {
               <span class="block ml-2 font-bold text-gray-600">{$page.params.bot}</span>
               <span class="absolute w-3 h-3 bg-green-600 rounded-full left-0 top-3">
               </span>
-<span on:click={deleteAllMessages} class="right-0 absolute justify-end"><Icon data={trash}/></span>
+<span on:click={deleteAllMessages} class="right-0 absolute justify-end px-1"><Icon data={trash}/></span>
 
             </div>
 
