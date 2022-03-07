@@ -2,7 +2,7 @@
 <script>
   import {onMount} from 'svelte'
   import Icon from 'svelte-awesome';
-  import { beer, refresh, comment, codeFork, camera, ban } from 'svelte-awesome/icons';
+  import { beer, trash, comment, codeFork, camera, ban } from 'svelte-awesome/icons';
   import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';  
   import { page } from '$app/stores' 
 
@@ -137,7 +137,7 @@ const toggleChat = () => {
               <span class="block ml-2 font-bold text-gray-600">{$page.params.bot}</span>
               <span class="absolute w-3 h-3 bg-green-600 rounded-full left-0 top-3">
               </span>
-<span on:click={deleteAllMessages} class="right-0 absolute justify-end">Clear</span>
+<span on:click={deleteAllMessages} class="right-0 absolute justify-end"><Icon data={trash}/></span>
 
             </div>
 
