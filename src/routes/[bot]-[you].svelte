@@ -1,8 +1,11 @@
 
 <script>
   import {onMount} from 'svelte'
-  
- import { page } from '$app/stores' 
+  import Icon from 'svelte-awesome';
+  import { beer, refresh, comment, codeFork, camera, ban } from 'svelte-awesome/icons';
+  import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';  
+  import { page } from '$app/stores' 
+
   let messages = []
   let prompt, newMessage = ''
   let botName = $page.params.bot || 'Mudiaga' 
