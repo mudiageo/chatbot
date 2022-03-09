@@ -5,11 +5,11 @@
   import { beer, trash, comment, codeFork, camera, ban } from 'svelte-awesome/icons';
   //import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';  
   import { page } from '$app/stores' 
-  import { randomUUID } from 'crypto'
+  import { randomUUID } from '../../node_modules/crypto'
   let messages = []
   let selectedMessages  = []
   let prompt, newMessage = ''
-let timer = Date.now()
+  let timer = Date.now()
   let botName = $page.params.bot || 'Mudiaga' 
   let yourName  = $page.params.you || 'You'
   
