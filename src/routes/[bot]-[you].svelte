@@ -7,6 +7,7 @@
   import { page } from '$app/stores' 
 
   let messages = []
+  let selectedMessages  = []
   let prompt, newMessage = ''
   let botName = $page.params.bot || 'Mudiaga' 
   let yourName  = $page.params.you || 'You'
@@ -71,6 +72,13 @@ if(confirm("Are you sure you want to delete previous all messages?")) {
 messages=[]
  localStorage.removeItem("messages")
 }
+}
+const deleteMessage = () => {
+messages = messages.filter((message) => {
+
+return message.sender !== 'Bot'
+})
+alert(messages.toString())
 }
 const toggleChat = () => {
  $: document.getElementById("messages-section").classList.toggle("hidden")
@@ -138,7 +146,7 @@ const toggleChat = () => {
               <span class="block ml-2 font-bold text-gray-600">{$page.params.bot}</span>
             <!--  <span class="absolute w-3 h-3 bg-green-600 rounded-full left-0 top-3">
               </span>-->
-<span on:click={deleteAllMessages} class="right-0 absolute justify-end p-3"><Icon data={trash}/></span>
+<span on:click={deleteMessage} class="right-0 absolute justify-end p-3"><Icon data={trash}/></span>
 
             </div>
 
