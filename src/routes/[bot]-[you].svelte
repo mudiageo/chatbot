@@ -5,7 +5,7 @@
   import { beer, trash, comment, codeFork, camera, ban } from 'svelte-awesome/icons';
   //import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';  
   import { page } from '$app/stores' 
-
+  import { randomUUID } from 'crypto'
   let messages = []
   let selectedMessages  = []
   let prompt, newMessage = ''
@@ -26,6 +26,7 @@ let timer = Date.now()
   const handleText = async (e) => {
 
       messages = [...messages, {
+          messageId: randomUUID()
           sender:  yourName,
           class: 'end',
           bg: 'bg-gray-200',
@@ -60,6 +61,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
         let botMessage = stuv.slice(0, -data.stop_sequence.length)
        
  messages = [...messages, {
+          messageId: randomUUID()
           sender:  botName,
           class: 'start',
           bg: '',
@@ -102,7 +104,7 @@ selectedMessages = []
 $: document.getElementById("normal-menu").classList.toggle("hidden")
  $: document.getElementById("selection-menu").classList.toggle("hidden")
 }
-}
+
 const toggleChat = () => {
  $: document.getElementById("messages-section").classList.toggle("hidden")
  $: document.getElementById("chat-section").classList.toggle("hidden")
