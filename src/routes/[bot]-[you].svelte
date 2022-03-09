@@ -76,7 +76,7 @@ messages=[]
 const deleteMessage = () => {
 messages = messages.filter((message) => {
 
-return message.sender !== 'Bot'
+return message.sender !== 'You'
 })
 alert(messages.toString())
 }
