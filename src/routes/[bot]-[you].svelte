@@ -1,4 +1,4 @@
-
+Op
 <script>
   import {onMount} from 'svelte'
   import Icon from 'svelte-awesome';
@@ -92,12 +92,15 @@ cancelSelection()
 }
 
 const handleSelect = messageId => {
-if(Date.now() - timer >= 5){
+
+let myTimer = Date.now() - timer
+alert(myTimer)
+if(myTimer >= 5){
 selectedMessages = selectedMessages.filter((message) => {
 
 return message.messageId !== messageId
 })
-alert(selectedMessages)
+
 selectedMessages = [...selectedMessages, {messageId}]
 if(!document.getElementById("normal-menu").hasClass("hidden")){
 $: document.getElementById("normal-menu").classList.toggle("hidden")
