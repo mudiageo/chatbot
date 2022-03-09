@@ -99,9 +99,10 @@ return message.messageId !== messageId
 })
 alert(selectedMessages)
 selectedMessages = [...selectedMessages, {messageId}]
+if(!document.getElementById("normal-menu").hasClass("hidden")){
 $: document.getElementById("normal-menu").classList.toggle("hidden")
  $: document.getElementById("selection-menu").classList.toggle("hidden")
-
+}
 }
 }
 const cancelSelection = () => {
