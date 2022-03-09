@@ -171,8 +171,7 @@ const toggleChat = () => {
               <span class="block ml-2 font-bold text-gray-600">{$page.params.bot}</span>
             <!--  <span class="absolute w-3 h-3 bg-green-600 rounded-full left-0 top-3">
               </span>-->
-<span class="right-0 absolute justify-end p-3"><Icon data={trash}/></span>
-
+<span on:click={deleteAllMessages} class="right-0 absolute justify-end p-3"><Icon data={trash}/></span>
             </div>
 <div id="selection-menu" class="relative hidden flex items-center p-1 border-b border-blue-300 sticky top-0">
               <a on:click={cancelSelection}>
