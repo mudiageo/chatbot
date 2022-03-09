@@ -187,8 +187,8 @@ const toggleChat = () => {
               <ul class="space-y-2">
                       {#each messages as item}
 
-                <li class="flex justify-{item.class}">
-                  <div on:mousedown={() => { timer = Date.now() }} on:mouseup={handleSelect} on:touchstart={() => { timer = Date.now() }} on:touchend={handleSelect} on:pointerdown={() => { timer = Date.now() }} on:pointerup={handleSelect} class="{item.bg} relative max-w-xl px-4 py-2 text-gray-700 rounded shadow" >
+                <li on:mousedown={() => { timer = Date.now() }} on:mouseup={handleSelect} on:touchstart={() => { timer = Date.now() }} on:touchend={handleSelect} on:pointerdown={() => { timer = Date.now() }} on:pointerup={handleSelect} class="flex justify-{item.class}">
+                  <div class="{item.bg} relative max-w-xl px-4 py-2 text-gray-700 rounded shadow" >
                     <span class="block">{item.message}</span>
                   </div>
                 </li>
