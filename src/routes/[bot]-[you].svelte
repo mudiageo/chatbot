@@ -93,6 +93,11 @@ cancelSelection()
 
 const handleSelect = messageId => {
 if(Date.now() - timer >= 5){
+selectedMessages = selectedMessages.filter((message) => {
+
+return message.messageId !== messageId
+})
+alert(selectedMessages)
 selectedMessages = [...selectedMessages, {messageId}]
 $: document.getElementById("normal-menu").classList.toggle("hidden")
  $: document.getElementById("selection-menu").classList.toggle("hidden")
