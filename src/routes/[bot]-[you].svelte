@@ -77,15 +77,13 @@ messages=[]
 }
 }
 const deleteMessage = messageId => {
-messages = messages.filter((message) => {
+messages = messages.filter( message => message.messageId !== messageId)
 
-return message.messageId !== messageId
-})
 
 }
 const deleteSelectedMessages = () => {
 
-selectedMessages.forEach((message)=> {
+selectedMessages.forEach( message => {
 deleteMessage(message.messageId)
 })
 cancelSelection()
@@ -96,12 +94,12 @@ const handleSelect = messageId => {
 let myTimer = Date.now() - timer
 alert(myTimer)
 if(myTimer >= 5){
-selectedMessages = selectedMessages.filter((message) => {
-
-return message.messageId !== messageId
-})
 
 selectedMessages = [...selectedMessages, {messageId}]
+
+
+selectedMessages = selectedMessages.filter( (message, index) => selectedMessages.indexOf(message) === index)
+
 //if(!document.getElementById("normal-menu").hasClass("hidden")){
 $: document.getElementById("normal-menu").classList.toggle("hidden")
  $: document.getElementById("selection-menu").classList.toggle("hidden")
