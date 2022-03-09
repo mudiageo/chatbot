@@ -1,4 +1,3 @@
-Op
 <script>
   import {onMount} from 'svelte'
   import Icon from 'svelte-awesome';
@@ -99,7 +98,7 @@ selectedMessages = [...selectedMessages, {messageId}]
 
 
 selectedMessages = selectedMessages.filter( (message, index) => selectedMessages.indexOf(message) === index)
-alert(document.getElementById("normal-menu").hasClass("hidden") + selectedMessages.toString())
+alert(document.getElementById("normal-menu").hasClass("hidden"))
 //if(!document.getElementById("normal-menu").hasClass("hidden")){
 $: document.getElementById("normal-menu").classList.toggle("hidden")
  $: document.getElementById("selection-menu").classList.toggle("hidden")
