@@ -26,7 +26,7 @@ let timer = Date.now()
   const handleText = async (e) => {
 
       messages = [...messages, {
-          messageId: randomUUID()
+          messageId: randomUUID(),
           sender:  yourName,
           class: 'end',
           bg: 'bg-gray-200',
@@ -61,7 +61,7 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
         let botMessage = stuv.slice(0, -data.stop_sequence.length)
        
  messages = [...messages, {
-          messageId: randomUUID()
+          messageId: randomUUID(),
           sender:  botName,
           class: 'start',
           bg: '',
