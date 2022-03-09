@@ -5,7 +5,7 @@
   import { beer, trash, comment, codeFork, camera, ban } from 'svelte-awesome/icons';
   //import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';  
   import { page } from '$app/stores' 
-  import  { v4 as randomUUID} from 'uuid/v4'
+  import  { v4 as randomUUID} from 'uuid'
   let messages = []
   let selectedMessages  = []
   let prompt, newMessage = ''
