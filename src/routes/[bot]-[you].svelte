@@ -182,13 +182,13 @@ const toggleChat = () => {
 <span on:click={deleteSelectedMessages} class="right-0 absolute justify-end p-3"><Icon data={trash}/></span>
 
             </div>
-<!--on:pointerdown={() => { timer = Date.now() }} on:pointerup={handleSelect}-->
+<!--on:mousedown={() => { timer = Date.now() }} on:mouseup={handleSelect(item.messageId)} on:pointerdown={() => { timer = Date.now() }} on:pointerup={handleSelect}-->
                  
             <div class="relative w-full p-6 overflow-y-auto h-full">
               <ul class="space-y-2">
                       {#each messages as item}
 
-                <li on:mousedown={() => { timer = Date.now() }} on:mouseup={handleSelect(item.messageId)} on:touchstart={() => { timer = Date.now() }} on:touchend={handleSelect(item.messageId)}  class="flex justify-{item.class}">
+                <li  on:touchstart={() => { timer = Date.now() }} on:touchend={handleSelect(item.messageId)}  class="flex justify-{item.class}">
                   
 
 <div class="{item.bg} relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
