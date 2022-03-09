@@ -9,6 +9,7 @@
   let messages = []
   let selectedMessages  = []
   let prompt, newMessage = ''
+let timer = Date.now()
   let botName = $page.params.bot || 'Mudiaga' 
   let yourName  = $page.params.you || 'You'
   
@@ -73,12 +74,34 @@ messages=[]
  localStorage.removeItem("messages")
 }
 }
-const deleteMessage = () => {
+const deleteMessage = messageId => {
 messages = messages.filter((message) => {
 
-return message.sender !== 'You'
+return message.messageId !== messageId
 })
-alert(messages.toString())
+
+}
+const deleteSelectedMessages = () => {
+
+selectedMessages.forEach((message)=> {
+deleteMessage(message.messageId)
+})
+cancelSelection()
+}
+
+const handleSelect = messageId => {
+if(Date.now() - timer >= 5){
+selectedMessages = [...selectedMessages, {messageId}]
+$: document.getElementById("normal-menu").classList.toggle("hidden")
+ $: document.getElementById("selection-menu").classList.toggle("hidden")
+
+}
+}
+const cancelSelection = () => {
+selectedMessages = []
+$: document.getElementById("normal-menu").classList.toggle("hidden")
+ $: document.getElementById("selection-menu").classList.toggle("hidden")
+}
 }
 const toggleChat = () => {
  $: document.getElementById("messages-section").classList.toggle("hidden")
@@ -128,7 +151,7 @@ const toggleChat = () => {
         </div>
         <div id="messages-section" class="hidden flex flex-col h-screen lg:col-span-2 lg:block">
           <div class="w-full h-full">
-            <div class="relative flex items-center p-1 border-b border-gray-300 sticky top-0">
+            <div id="normal-menu" class="relative flex items-center p-1 border-b border-gray-300 sticky top-0">
               <a on:click={toggleChat}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +169,16 @@ const toggleChat = () => {
               <span class="block ml-2 font-bold text-gray-600">{$page.params.bot}</span>
             <!--  <span class="absolute w-3 h-3 bg-green-600 rounded-full left-0 top-3">
               </span>-->
-<span on:click={deleteMessage} class="right-0 absolute justify-end p-3"><Icon data={trash}/></span>
+<span class="right-0 absolute justify-end p-3"><Icon data={trash}/></span>
+
+            </div>
+<div id="selection-menu" class="relative hidden flex items-center p-1 border-b border-blue-300 sticky top-0">
+              <a on:click={cancelSelection}>
+          X
+        </a>
+                <span class="block ml-2 font-bold text-gray-600">{selectedMessages.length}</span>
+            
+<span on:click={deleteSelectedMessages} class="right-0 absolute justify-end p-3"><Icon data={trash}/></span>
 
             </div>
 
@@ -155,7 +187,7 @@ const toggleChat = () => {
                       {#each messages as item}
 
                 <li class="flex justify-{item.class}">
-                  <div class="{item.bg} relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
+                  <div on:mousedown={() => { timer = Date.now() }} on:mouseup={handleSelect} class="{item.bg} relative max-w-xl px-4 py-2 text-gray-700 rounded shadow" >
                     <span class="block">{item.message}</span>
                   </div>
                 </li>
