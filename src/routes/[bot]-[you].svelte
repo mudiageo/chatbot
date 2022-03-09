@@ -98,11 +98,11 @@ selectedMessages = [...selectedMessages, {messageId}]
 
 
 selectedMessages = selectedMessages.filter( (message, index) => selectedMessages.indexOf(message) === index)
-alert(document.getElementById("normal-menu").hasClass("hidden"))
-//if(!document.getElementById("normal-menu").hasClass("hidden")){
+alert(document.getElementById("normal-menu").classList.contains("hidden") + selectedMessages.toString())
+if(!document.getElementById("normal-menu").classList.contains("hidden")){
 $: document.getElementById("normal-menu").classList.toggle("hidden")
  $: document.getElementById("selection-menu").classList.toggle("hidden")
-//}
+}
 }
 }
 const cancelSelection = () => {
