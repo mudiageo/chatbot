@@ -99,7 +99,7 @@ const handleSelect = messageId => {
 
 let myTimer = Date.now() - timer
 
-if(myTimer > 1800){
+if(myTimer > 800){
 
 
 if(!selectedMessages.includes(messageId)){
@@ -134,7 +134,7 @@ else {
 
 selectedMessages = selectedMessages.filter( message => message !== messageId)
 }
-if(selectedMessages.length > 0 && !document.getElementById("selection-menu").classList.contains("hidden")){
+if(selectedMessages.length === 0 && !document.getElementById("selection-menu").classList.contains("hidden")){
 selectedMessages = [...selectedMessages, messageId]
 
 }
@@ -182,7 +182,7 @@ const toggleChat = () => {
                     <span class="block ml-2 font-semibold text-gray-600">{$page.params.bot}</span>
                     <span class="block ml-2 text-sm text-gray-600">6 hour</span>
                   </div>
-                  <span class="block ml-2 text-sm text-gray-600">{lastMessage}</span>
+                  <span class="block ml-2 text-sm text-gray-600">{lastMessage()}</span>
                 </div>
               </a>
             </li>
