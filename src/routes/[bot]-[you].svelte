@@ -92,14 +92,17 @@ const handleSelect = messageId => {
 
 let myTimer = Date.now() - timer
 
-if(myTimer >= 2500){
-alert(messageId)
+if(myTimer > 1800){
+
 
 if(!selectedMessages.includes(messageId)){
 selectedMessages = [...selectedMessages, messageId]
-alert(messageId)
+
+}else{
+selectedMessages.filter( message => message !== messageId)
+
 }
-alert(messageId)
+
 
 if(!document.getElementById("normal-menu").classList.contains("hidden")){
 $: document.getElementById("normal-menu").classList.toggle("hidden")
@@ -107,6 +110,7 @@ $: document.getElementById("normal-menu").classList.toggle("hidden")
 }
 
 }
+
 }
 const cancelSelection = () => {
 selectedMessages = []
@@ -114,13 +118,18 @@ $: document.getElementById("normal-menu").classList.toggle("hidden")
  $: document.getElementById("selection-menu").classList.toggle("hidden")
 }
 const handleClick = messageId => {
+alert(messageId)
 if(selectedMessages.length > 0 && !selectedMessages.includes(messageId)){
 selectedMessages = [...selectedMessages, messageId]
-alert(messageId)
-
 
 }
+else {
+
+selectedMessages.filter( message => message !== messageId)
 }
+}
+
+
 
 const toggleChat = () => {
  $: document.getElementById("messages-section").classList.toggle("hidden")
