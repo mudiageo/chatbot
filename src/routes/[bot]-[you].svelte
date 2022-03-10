@@ -161,6 +161,7 @@ if(selectedMessages.length === 0 && !document.getElementById("selection-menu").c
 selectedMessages = selectedMessages.filter( message => message !== messageId)
 }
 }
+if(selectedMessages.length === 0 && !document.getElementById("selection-menu").classList.contains("hidden") ){toggleMenu()}
 
 }
 const cancelSelection = () => {
