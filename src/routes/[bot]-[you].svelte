@@ -93,12 +93,13 @@ const handleSelect = messageId => {
 let myTimer = Date.now() - timer
 
 if(myTimer >= 2500){
-
+alert(messageId)
 
 if(!selectedMessages.includes(messageId)){
 selectedMessages = [...selectedMessages, messageId]
 alert(messageId)
 }
+alert(messageId)
 
 if(!document.getElementById("normal-menu").classList.contains("hidden")){
 $: document.getElementById("normal-menu").classList.toggle("hidden")
@@ -113,7 +114,7 @@ $: document.getElementById("normal-menu").classList.toggle("hidden")
  $: document.getElementById("selection-menu").classList.toggle("hidden")
 }
 const handleClick = messageId => {
-if(selectedMessages.length > 0 || !selectedMessages.includes(messageId)){
+if(selectedMessages.length > 0 && !selectedMessages.includes(messageId)){
 selectedMessages = [...selectedMessages, messageId]
 alert(messageId)
 
