@@ -173,6 +173,18 @@ if(selectedMessages.length === 0 && !document.getElementById("selection-menu").c
 }
 const cancelSelection = () => {
 selectedMessages = []
+messages = messages.map((message) => {
+if(message.messageId === messageId){
+if(message.class === 'end bg-sky-200' || message.class === 'end'){
+message.bg = 'bg-gray-200'
+message.class = 'end'
+}else{
+message.bg = ''
+message.class = 'start'
+}
+}
+return message
+})
 toggleMenu()
 }
 const handleClick = messageId => {
