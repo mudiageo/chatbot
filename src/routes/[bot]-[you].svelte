@@ -134,10 +134,14 @@ else {
 
 selectedMessages = selectedMessages.filter( message => message !== messageId)
 }
+if(selectedMessages.length > 0 && !document.getElementById("selection-menu").classList.contains("hidden")){
+selectedMessages = [...selectedMessages, messageId]
+
+}
 }
 
 
-
+const lastMessage = () => messages.slice(-1).message
 const toggleChat = () => {
  $: document.getElementById("messages-section").classList.toggle("hidden")
  $: document.getElementById("chat-section").classList.toggle("hidden")
@@ -178,7 +182,7 @@ const toggleChat = () => {
                     <span class="block ml-2 font-semibold text-gray-600">{$page.params.bot}</span>
                     <span class="block ml-2 text-sm text-gray-600">6 hour</span>
                   </div>
-                  <span class="block ml-2 text-sm text-gray-600">Bot</span>
+                  <span class="block ml-2 text-sm text-gray-600">{lastMessage}</span>
                 </div>
               </a>
             </li>
@@ -206,11 +210,11 @@ const toggleChat = () => {
               </span>-->
 <span on:click={deleteAllMessages} class="right-0 absolute justify-end p-3"><Icon data={trash}/></span>
             </div>
-<div id="selection-menu" class="relative hidden flex items-center p-1 border-b bg-sky-500 sticky top-0">
+<div id="selection-menu" class="relative hidden flex items-center p-1 border-b h-12 text-white bg-sky-500 sticky top-0">
               <a on:click={cancelSelection}>
           X
         </a>
-                <span class="block ml-2 font-bold text-gray-600 h-14">{selectedMessages.length}</span>
+                <span class="block ml-2 font-bold">{selectedMessages.length}</span>
             
 <span on:click={deleteSelectedMessages} class="right-0 absolute justify-end p-3"><Icon data={trash}/></span>
 
