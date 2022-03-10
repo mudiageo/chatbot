@@ -19,6 +19,8 @@
     newMessage =  localStorage.getItem('newMessage') || 'hey'
     prompt =  localStorage.getItem('prompt') || ''
     $:  localStorage.setItem('newMessage', newMessage)
+if(selectedMessages.length === 0 && !document.getElementById("selection-menu").classList.contains("hidden") ){toggleMenu()}
+
 
  
 })
@@ -154,7 +156,6 @@ const toggleChat = () => {
  $: document.getElementById("messages-section").classList.toggle("hidden")
  $: document.getElementById("chat-section").classList.toggle("hidden")
 }
-if(selectedMessages.length === 0 && !document.getElementById("selection-menu").classList.contains("hidden") ){toggleMenu()}
 
 </script>
 <svelte:head>
