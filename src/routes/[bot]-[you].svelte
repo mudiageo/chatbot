@@ -29,7 +29,8 @@
           sender:  yourName,
           class: 'end',
           bg: 'bg-gray-200',
-          message: newMessage
+          message: newMessage,
+          timestamp: Date.now()
         }]
 
         newMessage = ""
@@ -64,7 +65,8 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
           sender:  botName,
           class: 'start',
           bg: '',
-          message: botMessage
+          message: botMessage,
+          timestamp: Date.now()
         }]
 
 }
@@ -118,7 +120,7 @@ $: document.getElementById("normal-menu").classList.toggle("hidden")
  $: document.getElementById("selection-menu").classList.toggle("hidden")
 }
 const handleClick = messageId => {
-alert(messageId)
+
 if(selectedMessages.length > 0 && !selectedMessages.includes(messageId)){
 selectedMessages = [...selectedMessages, messageId]
 
@@ -199,7 +201,7 @@ const toggleChat = () => {
               </span>-->
 <span on:click={deleteAllMessages} class="right-0 absolute justify-end p-3"><Icon data={trash}/></span>
             </div>
-<div id="selection-menu" class="relative hidden flex items-center p-1 border-b bg-blue-300 sticky top-0">
+<div id="selection-menu" class="relative hidden flex items-center p-1 border-b bg-blue-900 sticky top-0">
               <a on:click={cancelSelection}>
           X
         </a>
