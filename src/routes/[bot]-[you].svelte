@@ -313,7 +313,7 @@ const toggleChat = () => {
               <input type="text"
                 class="block w-full py-2 pl-4 mx-3 bg-gray-100 rounded-full outline-none focus:text-gray-700"
                 name="message" on:keyup={localStorage.setItem('newMessage', newMessage)}  bind:value={newMessage} placeholder="Message..."  required />
-              {#if !newMessage}
+              {#if !newMessage.trim()}
 <button>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
