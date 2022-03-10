@@ -139,7 +139,7 @@ selectedMessages = selectedMessages.filter( message => message !== messageId)
 }
 const cancelSelection = () => {
 selectedMessages = []
-toggle Menu()
+toggleMenu()
 }
 const handleClick = messageId => {
 
