@@ -154,7 +154,7 @@ const toggleChat = () => {
  $: document.getElementById("messages-section").classList.toggle("hidden")
  $: document.getElementById("chat-section").classList.toggle("hidden")
 }
-selectedMessages.length === 0 && !document.getElementById("selection-menu").classList.contains("hidden") ? toggleMenu()
+if(selectedMessages.length === 0 && !document.getElementById("selection-menu").classList.contains("hidden") ){toggleMenu()}
 
 </script>
 <svelte:head>
