@@ -118,8 +118,7 @@ selectedMessages = selectedMessages.filter( message => message !== messageId)
 
 
 if(!document.getElementById("normal-menu").classList.contains("hidden")){
-$: document.getElementById("normal-menu").classList.toggle("hidden")
- $: document.getElementById("selection-menu").classList.toggle("hidden")
+toggleMenu()
 }
 
 }
@@ -127,8 +126,7 @@ $: document.getElementById("normal-menu").classList.toggle("hidden")
 }
 const cancelSelection = () => {
 selectedMessages = []
-$: document.getElementById("normal-menu").classList.toggle("hidden")
- $: document.getElementById("selection-menu").classList.toggle("hidden")
+toggle Menu()
 }
 const handleClick = messageId => {
 
@@ -136,8 +134,7 @@ if(selectedMessages.length > 0 && !selectedMessages.includes(messageId)){
 selectedMessages = [...selectedMessages, messageId]
 
 } else if(selectedMessages.length === 0 && !document.getElementById("selection-menu").classList.contains("hidden")){
-selectedMessages = [...selectedMessages, messageId]
-
+toggleMenu()
 }
 else {
 
@@ -145,8 +142,12 @@ selectedMessages = selectedMessages.filter( message => message !== messageId)
 }
 
 }
+const toggleMenu = () => {
 
+ $: document.getElementById("normal-menu").classList.toggle("hidden")
+ $: document.getElementById("selection-menu").classList.toggle("hidden")
 
+}
 const lastMessage = () => messages.slice(-1).message
 const toggleChat = () => {
  $: document.getElementById("messages-section").classList.toggle("hidden")
