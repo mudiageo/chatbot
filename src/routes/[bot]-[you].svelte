@@ -110,7 +110,7 @@ if(message.messageId === messageId){
 message.bg = 'bg-gray-600 text-white'
 }
 return message
-}
+})
 
 }else{
 selectedMessages = selectedMessages.filter( message => message !== messageId)
