@@ -107,14 +107,23 @@ if(!selectedMessages.includes(messageId)){
 selectedMessages = [...selectedMessages, messageId]
 messages = messages.map((message) => {
 if(message.messageId === messageId){
-message.bg = 'bg-gray-800 text-white'
+message.bg = 'bg-gray-600 text-white'
 }
 return message
-})
+}
 
 }else{
 selectedMessages = selectedMessages.filter( message => message !== messageId)
-
+messages = messages.map((message) => {
+if(message.messageId === messageId){
+if(message.class === 'end'){
+message.bg = 'bg-gray-200'
+}else{
+message.bg = ''
+}
+}
+return message
+})
 }
 
 
@@ -129,9 +138,25 @@ else{
 
 if(selectedMessages.length > 0 && !selectedMessages.includes(messageId)){
 selectedMessages = [...selectedMessages, messageId]
-
-} else if(selectedMessages.length === 0 && !document.getElementById("selection-menu").classList.contains("hidden") ){toggleMenu()}
- else {
+messages = messages.map((message) => {
+if(message.messageId === messageId){
+message.bg = 'bg-gray-600 text-white'
+}
+return message
+})
+ if(selectedMessages.length === 0 && !document.getElementById("selection-menu").classList.contains("hidden") ){toggleMenu()}
+} else {
+messages = messages.map((message) => {
+if(message.messageId === messageId){
+if(message.class === 'end'){
+message.bg = 'bg-gray-200'
+}else{
+message.bg = ''
+}
+}
+return message
+})
+if(selectedMessages.length === 0 && !document.getElementById("selection-menu").classList.contains("hidden") ){toggleMenu()}
 
 selectedMessages = selectedMessages.filter( message => message !== messageId)
 }
