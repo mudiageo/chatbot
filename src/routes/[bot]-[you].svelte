@@ -92,7 +92,7 @@ const handleSelect = messageId => {
 
 let myTimer = Date.now() - timer
 
-if(myTimer >= 5000){
+if(myTimer >= 3000){
 
 
 selectedMessages = selectedMessages.filter( message => message.messageId !== messageId)
