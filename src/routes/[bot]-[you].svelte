@@ -99,7 +99,7 @@ if(!selectedMessages.includes(messageId)){
 selectedMessages = [...selectedMessages, messageId]
 
 }else{
-selectedMessages.filter( message => message !== messageId)
+selectedMessages = selectedMessages.filter( message => message !== messageId)
 
 }
 
@@ -125,7 +125,7 @@ selectedMessages = [...selectedMessages, messageId]
 }
 else {
 
-selectedMessages.filter( message => message !== messageId)
+selectedMessages = selectedMessages.filter( message => message !== messageId)
 }
 }
 
@@ -199,7 +199,7 @@ const toggleChat = () => {
               </span>-->
 <span on:click={deleteAllMessages} class="right-0 absolute justify-end p-3"><Icon data={trash}/></span>
             </div>
-<div id="selection-menu" class="relative hidden flex items-center p-1 border-b border-blue-300 sticky top-0">
+<div id="selection-menu" class="relative hidden flex items-center p-1 border-b bg-blue-300 sticky top-0">
               <a on:click={cancelSelection}>
           X
         </a>
