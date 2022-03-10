@@ -117,7 +117,7 @@ return message
 selectedMessages = selectedMessages.filter( message => message !== messageId)
 messages = messages.map((message) => {
 if(message.messageId === messageId){
-if(message.class === 'end bg-sky-200'){
+if(message.class === 'end bg-sky-200' || message.class === 'end'){
 message.bg = 'bg-gray-200'
 message.class = 'end'
 }else{
@@ -154,7 +154,7 @@ return message
  } else {
 messages = messages.map((message) => {
 if(message.messageId === messageId){
-if(message.class === 'end bg-sky-200'){
+if(message.class === 'end bg-sky-200' || message.class === 'end'){
 message.bg = 'bg-gray-200'
 message.class = 'end'
 }else{
