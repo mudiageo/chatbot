@@ -92,12 +92,12 @@ const handleSelect = messageId => {
 
 let myTimer = Date.now() - timer
 alert(myTimer)
-if(myTimer >= 5){
+if(myTimer >= 5000){
 
 selectedMessages = [...selectedMessages, {messageId}]
 
 
-selectedMessages = selectedMessages.filter( (message, index) => selectedMessages.indexOf(message) === index)
+selectedMessages = selectedMessages.filter( message => message.messageId !== messageId)
 alert(document.getElementById("normal-menu").classList.contains("hidden") + selectedMessages.toString())
 if(!document.getElementById("normal-menu").classList.contains("hidden")){
 $: document.getElementById("normal-menu").classList.toggle("hidden")
@@ -194,7 +194,7 @@ const toggleChat = () => {
               <ul class="space-y-2">
                       {#each messages as item}
 
-                <li  on:touchstart={() => { timer = Date.now() }} on:touchend={handleSelect(item.messageId)}  class="flex justify-{item.class}">
+                <li  on:touchstart|preventDefault={() => { timer = Date.now() }} on:touchend|preventDefault={handleSelect(item.messageId)}  class="flex justify-{item.class}">
                   
 
 <div class="{item.bg} relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
