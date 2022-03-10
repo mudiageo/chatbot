@@ -123,13 +123,7 @@ toggleMenu()
 
 }
 
-}
-const cancelSelection = () => {
-selectedMessages = []
-toggle Menu()
-}
-const handleClick = messageId => {
-
+else{
 if(selectedMessages.length > 0 && !selectedMessages.includes(messageId)){
 selectedMessages = [...selectedMessages, messageId]
 
@@ -140,6 +134,16 @@ else {
 
 selectedMessages = selectedMessages.filter( message => message !== messageId)
 }
+}
+
+}
+const cancelSelection = () => {
+selectedMessages = []
+toggle Menu()
+}
+const handleClick = messageId => {
+
+
 
 }
 const toggleMenu = () => {
