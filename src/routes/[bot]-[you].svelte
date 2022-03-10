@@ -91,14 +91,14 @@ cancelSelection()
 const handleSelect = messageId => {
 
 let myTimer = Date.now() - timer
-alert(myTimer)
-if(myTimer >= 5000){
 
-selectedMessages = [...selectedMessages, {messageId}]
+if(myTimer >= 5000){
 
 
 selectedMessages = selectedMessages.filter( message => message.messageId !== messageId)
-alert(document.getElementById("normal-menu").classList.contains("hidden") + selectedMessages.toString())
+
+selectedMessages = [...selectedMessages, {messageId}]
+
 if(!document.getElementById("normal-menu").classList.contains("hidden")){
 $: document.getElementById("normal-menu").classList.toggle("hidden")
  $: document.getElementById("selection-menu").classList.toggle("hidden")
