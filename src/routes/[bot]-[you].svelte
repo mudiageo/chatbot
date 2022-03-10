@@ -105,13 +105,13 @@ if(myTimer > 800){
 
 if(!selectedMessages.includes(messageId)){
 selectedMessages = [...selectedMessages, messageId]
-messages = messages.map(() => {
+/*messages = messages.map(() => {
 if(message.messageId === messageId){
 message.bg = 'bg-gray-800 text-white'
 }
 return message
 })
-
+*/
 }else{
 selectedMessages = selectedMessages.filter( message => message !== messageId)
 
