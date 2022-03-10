@@ -95,10 +95,9 @@ let myTimer = Date.now() - timer
 if(myTimer >= 3000){
 
 
-selectedMessages = selectedMessages.filter( message => message !== messageId)
-
+if(!selectedMessages.includes(messageId)){
 selectedMessages = [...selectedMessages, messageId]
-
+}
 if(!document.getElementById("normal-menu").classList.contains("hidden")){
 $: document.getElementById("normal-menu").classList.toggle("hidden")
  $: document.getElementById("selection-menu").classList.toggle("hidden")
