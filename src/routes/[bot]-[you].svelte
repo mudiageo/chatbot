@@ -214,7 +214,7 @@ const toggleChat = () => {
               <ul class="space-y-2">
                       {#each messages as item}
 
-                <li  on:touchstart|preventDefault={() => { timer = Date.now() }} on:touchend|preventDefault={handleSelect(item.messageId)} on:click|preventDefault={handleClick(item.messageId)}  class="flex justify-{item.class}">
+                <li  on:touchstart|preventDefault={() => { timer = Date.now() }} on:touchend|preventDefault={handleSelect(item.messageId)} on:click={handleClick(item.messageId)}  class="flex justify-{item.class}">
                   
 
 <div class="{item.bg} relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
