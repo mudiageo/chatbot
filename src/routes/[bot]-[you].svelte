@@ -83,11 +83,16 @@ messages = messages.filter( message => message.messageId !== messageId)
 
 }
 const deleteSelectedMessages = () => {
+if(confirm("Are you sure you want to delete the selected messages?")) {
+
+ 
 
 selectedMessages.forEach( message => {
 deleteMessage(message)
 })
+//localStorage.setItem("messages", messages)
 cancelSelection()
+}
 }
 
 const handleSelect = messageId => {
@@ -201,11 +206,11 @@ const toggleChat = () => {
               </span>-->
 <span on:click={deleteAllMessages} class="right-0 absolute justify-end p-3"><Icon data={trash}/></span>
             </div>
-<div id="selection-menu" class="relative hidden flex items-center p-1 border-b bg-blue-900 sticky top-0">
+<div id="selection-menu" class="relative hidden flex items-center p-1 border-b bg-sky-500 sticky top-0">
               <a on:click={cancelSelection}>
           X
         </a>
-                <span class="block ml-2 font-bold text-gray-600">{selectedMessages.length}</span>
+                <span class="block ml-2 font-bold text-gray-600 h-14">{selectedMessages.length}</span>
             
 <span on:click={deleteSelectedMessages} class="right-0 absolute justify-end p-3"><Icon data={trash}/></span>
 
