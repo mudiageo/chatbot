@@ -191,6 +191,13 @@ const handleClick = messageId => {
 
 }
 const toggleMenu = () => {
+if(message.class === 'end bg-sky-200' || message.class === 'end'){
+message.bg = 'bg-gray-200'
+message.class = 'end'
+}else{
+message.bg = ''
+message.class = 'start'
+}
 
  $: document.getElementById("normal-menu").classList.toggle("hidden")
  $: document.getElementById("selection-menu").classList.toggle("hidden")
