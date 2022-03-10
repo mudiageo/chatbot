@@ -94,15 +94,17 @@ let myTimer = Date.now() - timer
 
 if(myTimer >= 2500){
 
-alert(1)
+
 if(!selectedMessages.includes(messageId)){
 selectedMessages = [...selectedMessages, messageId]
 alert(messageId)
 }
+
 if(!document.getElementById("normal-menu").classList.contains("hidden")){
 $: document.getElementById("normal-menu").classList.toggle("hidden")
  $: document.getElementById("selection-menu").classList.toggle("hidden")
 }
+
 }
 }
 const cancelSelection = () => {
@@ -111,10 +113,10 @@ $: document.getElementById("normal-menu").classList.toggle("hidden")
  $: document.getElementById("selection-menu").classList.toggle("hidden")
 }
 const handleClick = messageId => {
-if(selectedMessages.length > 0){
-selectedMessages = selectedMessages.filter( message => message.messageId !== messageId)
-
+if(selectedMessages.length > 0 || !selectedMessages.includes(messageId)){
 selectedMessages = [...selectedMessages, messageId]
+alert(messageId)
+
 
 }
 }
@@ -202,7 +204,7 @@ const toggleChat = () => {
               <ul class="space-y-2">
                       {#each messages as item}
 
-                <li  on:touchstart|preventDefault={() => { timer = Date.now() }} on:touchend|preventDefault={handleSelect(item.messageId)} on:click|preventDefault={handleSelect(item.messageId)}  class="flex justify-{item.class}">
+                <li  on:touchstart|preventDefault={() => { timer = Date.now() }} on:touchend|preventDefault={handleSelect(item.messageId)} on:click|preventDefault={handleClick(item.messageId)}  class="flex justify-{item.class}">
                   
 
 <div class="{item.bg} relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
