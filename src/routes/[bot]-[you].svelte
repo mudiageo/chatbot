@@ -102,7 +102,6 @@ const handleSelect = messageId => {
 let myTimer = Date.now() - timer
 
 if(myTimer > 800){
-alert("touch and hold")
 
 if(!selectedMessages.includes(messageId)){
 selectedMessages = [...selectedMessages, messageId]
@@ -126,7 +125,7 @@ toggleMenu()
 }
 
 else{
-alert("tap")
+
 
 if(selectedMessages.length > 0 && !selectedMessages.includes(messageId)){
 selectedMessages = [...selectedMessages, messageId]
@@ -134,9 +133,6 @@ selectedMessages = [...selectedMessages, messageId]
 } else {
 
 selectedMessages = selectedMessages.filter( message => message !== messageId)
-}
-if(document.getElementById("selection-menu").classList.contains("hidden")){
-toggleMenu()
 }
 }
 
