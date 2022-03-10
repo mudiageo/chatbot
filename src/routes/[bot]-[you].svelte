@@ -108,6 +108,7 @@ selectedMessages = [...selectedMessages, messageId]
 messages = messages.map((message) => {
 if(message.messageId === messageId){
 message.bg = 'bg-gray-600 text-white'
+message.class = message.class+' bg-sky-200'
 }
 return message
 })
@@ -116,11 +117,15 @@ return message
 selectedMessages = selectedMessages.filter( message => message !== messageId)
 messages = messages.map((message) => {
 if(message.messageId === messageId){
-if(message.class === 'end'){
+if(message.class === 'end bg-sky-200'){
 message.bg = 'bg-gray-200'
+message.class = 'end'
 }else{
 message.bg = ''
+message.class = 'start'
 }
+
+
 }
 return message
 })
@@ -141,6 +146,8 @@ selectedMessages = [...selectedMessages, messageId]
 messages = messages.map((message) => {
 if(message.messageId === messageId){
 message.bg = 'bg-gray-600 text-white'
+message.class = message.class+' bg-sky-200'
+}
 }
 return message
 })
@@ -148,10 +155,12 @@ return message
 } else {
 messages = messages.map((message) => {
 if(message.messageId === messageId){
-if(message.class === 'end'){
+if(message.class === 'end bg-sky-200'){
 message.bg = 'bg-gray-200'
+message.class = 'end'
 }else{
 message.bg = ''
+message.class = 'start'
 }
 }
 return message
@@ -248,7 +257,7 @@ const toggleChat = () => {
               </span>-->
 <span on:click={deleteAllMessages} class="right-0 absolute justify-end p-3"><Icon data={trash}/></span>
             </div>
-<div id="selection-menu" class="relative hidden flex items-center p-1 border-b h-12 text-white bg-sky-500 sticky top-0">
+<div id="selection-menu" class="relative hidden flex items-center p-1 border-b border-sky-500 h-12 text-white bg-sky-500 sticky top-0">
               <a on:click={cancelSelection}>
           X
         </a>
@@ -267,7 +276,7 @@ const toggleChat = () => {
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
        -moz-user-select: none; /* Firefox */
-        -ms-user-select: none;user-select: none;" on:touchstart={() => { timer = Date.now() }} on:touchend={handleSelect(item.messageId)} on:click={handleClick(item.messageId)}  class="flex justify-{item.class} bg-blue-700">
+        -ms-user-select: none;user-select: none;" on:touchstart={() => { timer = Date.now() }} on:touchend={handleSelect(item.messageId)} on:click={handleClick(item.messageId)}  class="flex justify-{item.class}">
                   
 
 <div class="{item.bg} relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
