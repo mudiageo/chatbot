@@ -148,11 +148,10 @@ if(message.messageId === messageId){
 message.bg = 'bg-gray-600 text-white'
 message.class = message.class+' bg-sky-200'
 }
-}
+
 return message
 })
- if(selectedMessages.length === 0 && !document.getElementById("selection-menu").classList.contains("hidden") ){toggleMenu()}
-} else {
+ } else {
 messages = messages.map((message) => {
 if(message.messageId === messageId){
 if(message.class === 'end bg-sky-200'){
@@ -165,7 +164,6 @@ message.class = 'start'
 }
 return message
 })
-if(selectedMessages.length === 0 && !document.getElementById("selection-menu").classList.contains("hidden") ){toggleMenu()}
 
 selectedMessages = selectedMessages.filter( message => message !== messageId)
 }
