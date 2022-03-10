@@ -214,7 +214,11 @@ const toggleChat = () => {
               <ul class="space-y-2">
                       {#each messages as item}
 
-                <li  on:touchstart|preventDefault={() => { timer = Date.now() }} on:touchend|preventDefault={handleSelect(item.messageId)} on:click={handleClick(item.messageId)}  class="flex justify-{item.class}">
+                <li style="  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none;user-select: none;" on:touchstart={() => { timer = Date.now() }} on:touchend={handleSelect(item.messageId)} on:click={handleClick(item.messageId)}  class="flex justify-{item.class}">
                   
 
 <div class="{item.bg} relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
