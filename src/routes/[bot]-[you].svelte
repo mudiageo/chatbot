@@ -15,13 +15,19 @@
   
   
   onMount(() => {
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
     messages =  JSON.parse(localStorage.getItem('messages')) || []  
     newMessage =  localStorage.getItem('newMessage') || 'hey'
     prompt =  localStorage.getItem('prompt') || ''
     $:  localStorage.setItem('newMessage', newMessage)
-if(selectedMessages.length === 0 && !document.getElementById("selection-menu").classList.contains("hidden") ){toggleMenu()}
 
 
+const recognition = new SpeechRecognition()
+recognition.interimResults = true
+recognition.lang = 'en-US'
+recognition.addEventListener('result', (e)=> {
+newMessage = e.results[0][0].transcript
+})
  
 })
   const handleText = async (e) => {
@@ -185,10 +191,14 @@ return message
 })
 toggleMenu()
 }
-const handleClick = messageId => {
+const startVoiceCapture = () => {
 
+recognition.start()
+}
 
+const stopVoiceCapture = () => {
 
+recognition.stop()
 }
 const toggleMenu = () => {
 
@@ -196,7 +206,7 @@ const toggleMenu = () => {
  $: document.getElementById("selection-menu").classList.toggle("hidden")
 
 }
-const lastMessage = () => messages.slice(-1).message
+const lastMessage = () => messages[messages.length-1].message
 const toggleChat = () => {
  $: document.getElementById("messages-section").classList.toggle("hidden")
  $: document.getElementById("chat-section").classList.toggle("hidden")
@@ -280,7 +290,7 @@ const toggleChat = () => {
               <ul class="space-y-2">
                       {#each messages as item}
 
-                <li style="  -webkit-touch-callout: none; /* iOS Safari */
+                <li style="-webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
        -moz-user-select: none; /* Firefox */
@@ -314,7 +324,7 @@ const toggleChat = () => {
                 class="block w-full py-2 pl-4 mx-3 bg-gray-100 rounded-full outline-none focus:text-gray-700"
                 name="message" on:keyup={localStorage.setItem('newMessage', newMessage)}  bind:value={newMessage} placeholder="Message..."  required />
               {#if !newMessage.trim()}
-<button>
+<button on:touchstart={startVoiceCapture} on:touchend={stopVoiceCapture}>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
