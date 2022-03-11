@@ -21,7 +21,7 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
     prompt =  localStorage.getItem('prompt') || ''
     $:  localStorage.setItem('newMessage', newMessage)
 
-
+let lastMessage = messages[messages.length-1].message || ''
 const recognition = new SpeechRecognition()
 recognition.interimResults = true
 recognition.lang = 'en-US'
@@ -206,11 +206,7 @@ const toggleMenu = () => {
  $: document.getElementById("selection-menu").classList.toggle("hidden")
 
 }
-const lastMessage = () => {
-//if(messages == undefined)
-   return messages.length-1 
-//'No recent messages'
-}
+let lastMessage = 'No recent messages'
 const toggleChat = () => {
  $: document.getElementById("messages-section").classList.toggle("hidden")
  $: document.getElementById("chat-section").classList.toggle("hidden")
