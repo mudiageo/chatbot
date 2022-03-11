@@ -207,7 +207,7 @@ const toggleMenu = () => {
 
 }
 const lastMessage = () => {
-if(messages){
+if(messages == undefined){
    return messages[messages.length-1].message }
 else { return 'No recent messages'
 }
