@@ -192,7 +192,7 @@ return message
 toggleMenu()
 }
 const startVoiceCapture = () => {
-alert('34')
+
 recognition.start()
 }
 
