@@ -26,6 +26,7 @@ const recognition = new SpeechRecognition()
 recognition.interimResults = true
 recognition.lang = 'en-US'
 recognition.addEventListener('result', (e)=> {
+alert('#$23')
 newMessage = e.results[0][0].transcript
 })
  
