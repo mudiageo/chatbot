@@ -203,7 +203,9 @@ recognition.stop()
 const toggleMenu = () => {
 
  $: document.getElementById("normal-menu").classList.toggle("hidden")
- $: document.getElementById("selection-menu").classList.toggle("hidden"
+ $: document.getElementById("selection-menu").classList.toggle("hidden")
+
+}
 const lastMessage = () => messages[messages.length-1].message || 'No recent messages'
 const toggleChat = () => {
  $: document.getElementById("messages-section").classList.toggle("hidden")
