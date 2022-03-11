@@ -247,7 +247,7 @@ const toggleChat = () => {
                     <span class="block ml-2 font-semibold text-gray-600">{$page.params.bot}</span>
                     <span class="block ml-2 text-sm text-gray-600">6 hour</span>
                   </div>
-                  <span class="block ml-2 text-sm text-gray-600">{lastMessage()}</span>
+                  <span class="block ml-2 text-sm text-gray-600">{lastMessage}</span>
                 </div>
               </a>
             </li>
