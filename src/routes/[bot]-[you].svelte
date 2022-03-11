@@ -206,7 +206,12 @@ const toggleMenu = () => {
  $: document.getElementById("selection-menu").classList.toggle("hidden")
 
 }
-const lastMessage = () => messages[messages.length-1].message || 'No recent messages'
+const lastMessage = () => {
+if(messages){
+   return messages[messages.length-1].message }
+else { return 'No recent messages'
+}
+}
 const toggleChat = () => {
  $: document.getElementById("messages-section").classList.toggle("hidden")
  $: document.getElementById("chat-section").classList.toggle("hidden")
