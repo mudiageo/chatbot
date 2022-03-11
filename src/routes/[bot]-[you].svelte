@@ -207,10 +207,9 @@ const toggleMenu = () => {
 
 }
 const lastMessage = () => {
-if(messages == undefined){
-   return messages[messages.length-1].message }
-else { return 'No recent messages'
-}
+//if(messages == undefined)
+   return messages.length-1 
+//'No recent messages'
 }
 const toggleChat = () => {
  $: document.getElementById("messages-section").classList.toggle("hidden")
