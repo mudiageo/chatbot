@@ -192,12 +192,12 @@ return message
 toggleMenu()
 }
 const startVoiceCapture = () => {
-
+alert('34')
 recognition.start()
 }
 
 const stopVoiceCapture = () => {
-
+alert('stop')
 recognition.stop()
 }
 const toggleMenu = () => {
