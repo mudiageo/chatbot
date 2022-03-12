@@ -11,8 +11,9 @@
   let timer;
   let botName = $page.params.bot || 'Mudiaga' 
   let yourName  = $page.params.you || 'You'
-  
-  
+  let recognition
+  let lastMessage = 'No recent messages'
+
   
   onMount(() => {
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
@@ -21,10 +22,11 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
     prompt =  localStorage.getItem('prompt') || ''
     $:  localStorage.setItem('newMessage', newMessage)
 
-let lastMessage = messages[messages.length-1].message || ''
-const recognition = new SpeechRecognition()
+lastMessage = messages[messages.length-1].message || ''
+ recognition = new SpeechRecognition()
 recognition.interimResults = true
 recognition.lang = 'en-US'
+alert(recognition)
 recognition.addEventListener('result', (e)=> {
 alert('#$23')
 newMessage = e.results[0][0].transcript
@@ -207,7 +209,6 @@ const toggleMenu = () => {
  $: document.getElementById("selection-menu").classList.toggle("hidden")
 
 }
-let lastMessage = 'No recent messages'
 const toggleChat = () => {
  $: document.getElementById("messages-section").classList.toggle("hidden")
  $: document.getElementById("chat-section").classList.toggle("hidden")
