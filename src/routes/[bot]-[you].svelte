@@ -18,15 +18,15 @@
   onMount(() => {
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
     messages =  JSON.parse(localStorage.getItem('messages')) || []  
-    newMessage =  localStorage.getItem('newMessage') || 'hey'
+    newMessage =  localStorage.getItem('newMessage') || ''
     prompt =  localStorage.getItem('prompt') || ''
     $:  localStorage.setItem('newMessage', newMessage)
 
-lastMessage = messages[messages.length-1].message || ''
+$: lastMessage = messages[messages.length-1].message || ''
  recognition = new SpeechRecognition()
 recognition.interimResults = true
 recognition.lang = 'en-US'
-alert(recognition)
+
 recognition.addEventListener('result', (e)=> {
 alert('#$23')
 newMessage = e.results[0][0].transcript
