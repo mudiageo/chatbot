@@ -28,7 +28,7 @@ recognition.interimResults = true
 recognition.lang = 'en-US'
 
 recognition.addEventListener('result', (e)=> {
-alert('#$23')
+
 newMessage = e.results[0][0].transcript
 })
  
@@ -197,16 +197,25 @@ toggleMenu()
 const startVoiceCapture = () => {
 
 recognition.start()
+toggleMenu()
 }
 
 const stopVoiceCapture = () => {
-alert('stop')
+
 recognition.stop()
+toggleMenu()
 }
 const toggleMenu = () => {
 
  $: document.getElementById("normal-menu").classList.toggle("hidden")
  $: document.getElementById("selection-menu").classList.toggle("hidden")
+
+}
+
+const toggleMic = () => {
+
+ $: document.getElementById("mic").classList.toggle("text-gray-500")
+ $: document.getElementById("mic").classList.toggle("text-red-800")
 
 }
 const toggleChat = () => {
@@ -309,7 +318,7 @@ const toggleChat = () => {
 <!--Message Input Section-->
             <div class="flex items-center justify-between bg-white w-full p-3 border-t border-gray-300 sticky bottom-0">
               <button>
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24"
+                <svg xmlns="http://www.w3.org/2000/svg" id="mic" class="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
