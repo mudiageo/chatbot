@@ -266,7 +266,7 @@ const toggleChat = () => {
         </div>
         <div id="messages-section" class="hidden flex flex-col h-screen lg:col-span-2 lg:block">
           <div class="w-full h-full">
-            <div id="normal-menu" class="relative flex items-center p-1 border-b border-gray-300 sticky top-0 z-30">
+            <div id="normal-menu" class="relative flex items-center p-1 border-b border-gray-300 bg-white sticky top-0 z-30">
               <a on:click={toggleChat}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
