@@ -192,12 +192,12 @@ message.class = 'start'
 }
 return message
 })
-toggleMenu()
+toggleMic()
 }
 const startVoiceCapture = () => {
 
 recognition.start()
-toggleMenu()
+toggleMic()
 }
 
 const stopVoiceCapture = () => {
