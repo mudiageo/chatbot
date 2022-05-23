@@ -1,4 +1,4 @@
-//const functions = require("firebase-functions");
+const functions = require("firebase-functions");
 let ssrServerServer;
                 exports.ssrServer = functions.region("us-central1").https.onRequest(async (request, response) => {
                   if (!ssrServerServer) {
