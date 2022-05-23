@@ -1,10 +1,15 @@
 {
   "hosting": {
-  "public": ".svelte-kit/build",
-  "ignore": [
-    "firebase.json",
-    "**/.*",
-    "**/node_modules/**"
-  ]
-}
+    "public": "myApp",
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "ssrServer"
+      }
+    ],
+    "predeploy": ["npm run build"]
+  },
+  "functions": {
+    "source": "functions"
+  }
 }
