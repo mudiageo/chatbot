@@ -1,6 +1,6 @@
 <script>
 import {onMount} from 'svelte'
-let bot =''
+let bot = ''
 let you = ''
 
 let prompt

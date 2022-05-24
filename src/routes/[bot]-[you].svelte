@@ -252,7 +252,7 @@ const toggleChat = () => {
               <a on:click={toggleChat}
                 class="flex items-center px-3 py-2 text-sm transition duration-150 ease-in-out border-b border-gray-300 cursor-pointer hover:bg-gray-100 focus:outline-none">
                 <img class="object-cover w-10 h-10 rounded-full"
-                  src="https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg" alt="username" />
+                  src="https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg" alt="user" />
                 <div class="w-full pb-2">
                   <div class="flex justify-between">
                     <span class="block ml-2 font-semibold text-gray-600">{$page.params.bot}</span>
@@ -264,6 +264,8 @@ const toggleChat = () => {
             </li>
           </ul>
         </div>
+		
+		
         <div id="messages-section" class="hidden flex flex-col h-screen lg:col-span-2 lg:block">
           <div class="w-full h-full">
             <div id="normal-menu" class="relative flex items-center p-1 border-b border-gray-300 bg-white sticky top-0 z-30">
@@ -280,7 +282,7 @@ const toggleChat = () => {
           </svg>
         </a>
               <img class="object-cover w-10 h-10 rounded-full"
-                src="https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg" alt="username" />
+                src="https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg" alt="user" />
               <span class="block ml-2 font-bold text-gray-600">{$page.params.bot}</span>
             <!--  <span class="absolute w-3 h-3 bg-green-600 rounded-full left-0 top-3">
               </span>-->
@@ -305,7 +307,7 @@ const toggleChat = () => {
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
        -moz-user-select: none; /* Firefox */
-        -ms-user-select: none;user-select: none;" on:touchstart={() => { timer = Date.now() }} on:touchend={handleSelect(item.messageId)} on:click={handleClick(item.messageId)}  class="flex justify-{item.class}">
+        -ms-user-select: none;user-select: none;" on:pointerdown={() => { timer = Date.now() }} on:pointerup={handleSelect(item.messageId)} on:click={handleClick(item.messageId)}  class="flex justify-{item.class}">
                   
 
 <div class="{item.bg} relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
@@ -315,6 +317,9 @@ const toggleChat = () => {
                 {/each}
               </ul>
             </div>
+			
+			
+			
 <!--Message Input Section-->
             <div class="flex items-center justify-between bg-white w-full p-3 border-t border-gray-300 sticky bottom-0">
               <button>
