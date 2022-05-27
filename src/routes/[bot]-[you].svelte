@@ -7,6 +7,7 @@
   import  { v4 as randomUUID} from 'uuid'
   let messages = []
   let selectedMessages  = []
+  let unsentMessages  = []
   let prompt, newMessage = ''
   let timer;
   let botName = $page.params.bot || 'Mudiaga' 
@@ -19,6 +20,7 @@
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
     messages =  JSON.parse(localStorage.getItem('messages')) || []  
     newMessage =  localStorage.getItem('newMessage') || ''
+    unsentMessages =  localStorage.getItem('unsentMessages').split(",") || []
     prompt =  localStorage.getItem('prompt') || ''
     $:  localStorage.setItem('newMessage', newMessage)
 
@@ -32,7 +34,12 @@ recognition.addEventListener('result', (e)=> {
 newMessage = e.results[0][0].transcript
 })
  
+ 
+if ("serviceWorker" in navigator){
+
+}
 })
+
   const handleText = async (e) => {
 
       messages = [...messages, {
@@ -63,12 +70,16 @@ newMessage = e.results[0][0].transcript
        }
 
 let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURIComponent(val)}`).join('&')
+/*if (navigator.online) {
+fetchResponse(params)
+alert('Online')
+}else {
+alert("Offline")
+}*/
+try {
 
-
-        const response = await fetch(`https://express-hello-world-hh2h.onrender.com/?${params}`)
-       
+   const response = await fetch(`https://express-hello-world-hh2h.onrender.com/?${params}`)
         let stuv = await response.text()
-     //   $: document.getElementById('console').innerHTML = text
         let botMessage = stuv.slice(0, -data.stop_sequence.length)
        
  messages = [...messages, {
@@ -79,9 +90,31 @@ let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURICompone
           message: botMessage,
           timestamp: Date.now()
         }]
+}
+catch {
+unsentMessages = [...unsentMessages, messages[messages.length -1].messageId]
+        localStorage.setItem('unsentMessages', unsentMessages)
+		
+		}
 
 }
 
+const fetchResponse = async (params) => {
+        const response = await fetch(`https://express-hello-world-hh2h.onrender.com/?${params}`)
+       
+        let stuv = await response.text()
+        let botMessage = stuv.slice(0, -data.stop_sequence.length)
+       
+ messages = [...messages, {
+          messageId: randomUUID(),
+          sender:  botName,
+          class: 'start',
+          bg: '',
+          message: botMessage,
+          timestamp: Date.now()
+        }]
+		
+		}
 const deleteAllMessages = () => {
 if(confirm("Are you sure you want to delete previous all messages?")) {
 messages=[]
