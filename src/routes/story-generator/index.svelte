@@ -17,9 +17,9 @@ const query = async () => {
 			body: JSON.stringify(data),
 		}
 	); 
-	alert('fetched')
+	
 	const result = await response.json();
-	prompt = result
+	prompt = result.generated_text
 
 }
 
