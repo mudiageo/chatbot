@@ -8,7 +8,7 @@ onMount(() => {
 const query = async () => {
   localStorage.setItem('story-prompt', prompt)
   const data = {"inputs": prompt}
-  alert(data)
+  
 	const response = await fetch(
 		"https://api-inference.huggingface.co/models/EleutherAI/gpt-j-6B",
 		{
@@ -19,7 +19,7 @@ const query = async () => {
 	);
 	const result = await response.json();
 	prompt = result
-alert(prompt)
+
 }
 
 
@@ -38,7 +38,7 @@ alert(prompt)
 Prompt: <textarea id="prompt" on:input={document.getElementById("prompt").parentNode.dataset.value = prompt} placeholder="Prompt" class="bg-black-800" bind:value={prompt}></textarea></div>
         
 <br>
-      <button on:click={query()} class="btn btn-primary">Get Started</button>
+      <button on:click={query} class="btn btn-primary">Generate Awesome Storytime</button>
     </div>
     
     
