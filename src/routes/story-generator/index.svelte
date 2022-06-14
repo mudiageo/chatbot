@@ -12,11 +12,12 @@ const query = async () => {
 	const response = await fetch(
 		"https://api-inference.huggingface.co/models/EleutherAI/gpt-j-6B",
 		{
-			headers: { Authorization: "Bearer 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" },
+			headers: { Authorization: `Bearer ${import.meta.env.VITE_HUGGINGFACE_API_TOKEN}`},
 			method: "POST",
 			body: JSON.stringify(data),
 		}
-	);
+	); 
+	alert('fetched')
 	const result = await response.json();
 	prompt = result
 
