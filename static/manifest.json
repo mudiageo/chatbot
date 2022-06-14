@@ -1,9 +1,9 @@
 {
-    "name": "AI Chat",
-    "short_name": "AI Chat",
+    "name": "Mudiaga AI",
+    "short_name": "Mudiaga AI",
     "start_url": "/",
     "background_color": "#1b4079",
-    "theme_color": "#d62828",
+    "theme_color": "#2834d3d0",
     "display": "standalone",
     "scope": "/",
     "icons": 
@@ -31,5 +31,33 @@
         "type": "image/png",
         "purpose": "any maskable"
       }
-    ]
+    ],
+  "shortcuts": [
+    {
+      "name": "AI Chat",
+      "short_name": "AI Chat",
+      "description": "A GPT-J chatbot",
+      "url": "/chatbot?source=pwa",
+      "icons": [
+        {
+          "src": "maskable_icon_x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Story Generator",
+      "short_name": "Story Generator",
+      "description": "A story generator made with GPT-J",
+      "url": "/story-generator?source=pwa",
+      "icons": [
+        {
+          "src": "maskable_icon_x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "description": "Mudiaga's AI projects"
+
 }

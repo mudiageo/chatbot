@@ -1,5 +1,5 @@
 {
-	"name": "my-dev-portfolio",
+	"name": "mudiaga-ai",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "svelte-kit dev",
