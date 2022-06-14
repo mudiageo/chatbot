@@ -19,7 +19,7 @@ const query = async () => {
 	); 
 	
 	const result = await response.json();
-	prompt = result.generated_text
+	prompt = result[0].generated_text
 
 }
 
