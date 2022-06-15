@@ -26,7 +26,7 @@ bind:value={you}
 Prompt: <textarea id="prompt" on:input={document.getElementById("prompt").parentNode.dataset.value = prompt} placeholder="Prompt" class="bg-black-800" bind:value={prompt}></textarea></div>
         
 <br>
-      <a href="/{bot}-{you}" on:click={localStorage.setItem('prompt', prompt)} class="btn btn-primary">Get Started</a>
+      <a href="{bot}-{you}" on:click={localStorage.setItem('prompt', prompt)} class="btn btn-primary">Get Started</a>
     </div>
   </div>
 </div>
