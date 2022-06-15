@@ -7,19 +7,24 @@ onMount(() => {
 
 const query = async () => {
   localStorage.setItem('story-prompt', prompt)
-  const data = {"inputs": prompt}
+//  const data = {"inputs": prompt}
   
-	const response = await fetch(
-		"https://api-inference.huggingface.co/models/EleutherAI/gpt-j-6B",
-		{
-			headers: { Authorization: `Bearer ${import.meta.env.VITE_HUGGINGFACE_API_TOKEN}`},
-			method: "POST",
-			body: JSON.stringify(data),
-		}
-	); 
+	    let data = {
+
+         context: prompt,
+         temperature: 1,
+         token_max_length: 50,
+         top_p: 0.9,
+         stop_sequence: ''
+       }
+
+let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURIComponent(val)}`).join('&')
+'
+
+   const response = await fetch(`https://express-hello-world-hh2h.onrender.com/?${params}`)
+ 
+	prompt = await response.text();
 	
-	const result = await response.json();
-	prompt = result[0].generated_text
 
 }
 
