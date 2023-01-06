@@ -23,7 +23,7 @@ const response = openai.createCompletion({
 })
 let prompt
 onMount(() => {
-  alert(response)
+  alert('res'+response)
  prompt = localStorage.getItem('story-prompt') || 'You are talking to Mudiaga a web developer with over 8 years of experience in web technologies. He studied at MIT. He is a JavaScript Developer and he works with Sveltekit and Svelte alot. '
 })
 
