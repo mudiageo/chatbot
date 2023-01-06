@@ -7,7 +7,7 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-const response = await openai.createCompletion({
+const response = openai.createCompletion({
   model: "text-davinci-003",
   prompt: "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.\n\nHuman: Hello, who are you?\nAI: I am an AI created by OpenAI. How can I help you today?\nHuman: ",
   temperature: 0.9,
@@ -16,7 +16,9 @@ const response = await openai.createCompletion({
   frequency_penalty: 0,
   presence_penalty: 0.6,
   stop: [" Human:", " AI:"],
-});
+}).then(res => {
+  browser ? alert(res) : null
+}) return res
 let prompt
 onMount(() => {
   alert(response)
@@ -37,7 +39,7 @@ const query = async () => {
        }
 
 let params = Object.entries(data).map(([key, val]) => `${key}=${encodeURIComponent(val)}`).join('&')
-'
+
 
    const response = await fetch(`https://express-hello-world-hh2h.onrender.com/?${params}`)
  
