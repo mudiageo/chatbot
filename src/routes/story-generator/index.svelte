@@ -18,7 +18,7 @@ const response = openai.createCompletion({
   presence_penalty: 0.6,
   stop: [" Human:", " AI:"],
 }).then(res => {
-  browser ? alert(res) : null
+  browser ? alert(res.json()) : null
  return res
 })
 let prompt
