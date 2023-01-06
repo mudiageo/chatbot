@@ -1,5 +1,6 @@
 <script>
 import {onMount} from 'svelte'
+import { browser} from '$app/env'
 import { Configuration, OpenAIApi } from 'openai'
 
 const configuration = new Configuration({
