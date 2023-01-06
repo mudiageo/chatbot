@@ -19,7 +19,8 @@ const response = openai.createCompletion({
   stop: [" Human:", " AI:"],
 }).then(res => {
   browser ? alert(res) : null
-}) return res
+ return res
+})
 let prompt
 onMount(() => {
   alert(response)
